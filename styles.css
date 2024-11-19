@@ -6,15 +6,15 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/* Body background with a gradient */
+/* Body background and typography */
 body {
-    background: linear-gradient(135deg, #0d0d0d, #2c2c2c);
-    color: #e8e8e8;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #ecf0f1;
     padding: 20px;
     line-height: 1.6;
 }
 
-/* Navigation Bar with futuristic link styling */
+/* Navigation styling */
 nav {
     text-align: center;
     margin-bottom: 20px;
@@ -59,11 +59,10 @@ nav ul li a:hover::before {
     transform: scaleX(1);
 }
 
-/* Header styling with a subtle shadow */
+/* Header section with larger fonts */
 header {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.8);
-    color: #e8e8e8;
     padding: 40px 20px;
     border-radius: 8px;
     margin-bottom: 30px;
@@ -71,113 +70,152 @@ header {
 }
 
 header h1 {
-    font-size: 2.8em;
-    margin-bottom: 10px;
+    font-size: 3.2em;
+    margin-bottom: 20px;
+    color: #00ff88;
 }
 
 header p {
-    font-size: 1.2em;
-    max-width: 600px;
+    font-size: 1.3em;
+    color: #ecf0f1;
+    max-width: 650px;
     margin: 0 auto;
-    color: #b3b3b3;
 }
 
-/* CTA Buttons with a neon glow effect */
-.cta-buttons {
-    margin-top: 20px;
-}
-
-.btn {
+.cta-buttons .btn {
     background-color: #00d4ff;
     color: #fff;
-    padding: 12px 24px;
+    padding: 15px 30px;
     border-radius: 5px;
-    text-decoration: none;
-    margin: 10px;
+    margin: 15px;
     font-weight: bold;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
 }
 
-.btn:hover {
+.cta-buttons .btn:hover {
     background-color: #00ff88;
-    box-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
 }
 
-/* Section styling with a card effect */
-section {
-    margin: 30px 0;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.05);
+/* About section */
+#about {
+    text-align: center;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Header for each section */
-h2 {
-    color: #00d4ff;
-    margin-bottom: 10px;
-    text-shadow: 0 0 4px rgba(0, 212, 255, 0.5);
+#about p {
+    font-size: 1.2em;
+    color: #bdc3c7;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-/* Project Cards with futuristic glow and more spacing */
-.project-card {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), 0 0 8px rgba(0, 212, 255, 0.2);
-    transition: transform 0.3s ease;
+/* Projects Section */
+#projects {
+    margin-top: 60px;
     text-align: center;
 }
 
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 212, 255, 0.4);
+    transition: transform 0.3s ease;
+}
+
 .project-card h3 {
-    color: #00ff88;
-    margin-bottom: 15px;
-    font-size: 1.8em;
+    color: #00d4ff;
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
 .project-card p {
-    color: #b3b3b3;
+    color: #bdc3c7;
+    font-size: 1.1em;
     margin-bottom: 20px;
-    font-size: 1.1em;
-}
-
-.project-card .btn {
-    background-color: #00ff88;
-    color: white;
-    box-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
-    padding: 15px 30px;
-    font-size: 1.1em;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 212, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.project-card a {
+    text-decoration: none;
+    background-color: #00d4ff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-card a:hover {
+    background-color: #00ff88;
+    transform: scale(1.1);
 }
 
 /* Contact Section */
 #contact {
+    margin-top: 60px;
     text-align: center;
-    margin-top: 30px;
 }
 
-/* Footer styling */
-footer {
-    text-align: center;
-    padding: 10px;
-    margin-top: 30px;
-    color: #b3b3b3;
-}
-
-footer a {
+#contact a {
     color: #00d4ff;
     text-decoration: none;
     font-weight: bold;
-    position: relative;
-    transition: color 0.3s ease;
 }
 
-footer a:hover {
+#contact a:hover {
     color: #00ff88;
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #bdc3c7;
+    border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1.1em;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
