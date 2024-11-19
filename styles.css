@@ -93,7 +93,7 @@ header p {
     padding: 12px 24px;
     border-radius: 5px;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 10px;
     font-weight: bold;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
@@ -120,29 +120,35 @@ h2 {
     text-shadow: 0 0 4px rgba(0, 212, 255, 0.5);
 }
 
-/* Project Cards with futuristic glow */
+/* Project Cards with futuristic glow and more spacing */
 .project-card {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    margin-bottom: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), 0 0 8px rgba(0, 212, 255, 0.2);
     transition: transform 0.3s ease;
+    text-align: center;
 }
 
 .project-card h3 {
     color: #00ff88;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
 }
 
 .project-card p {
     color: #b3b3b3;
+    margin-bottom: 20px;
+    font-size: 1.1em;
 }
 
 .project-card .btn {
     background-color: #00ff88;
     color: white;
     box-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
+    padding: 15px 30px;
+    font-size: 1.1em;
 }
 
 .project-card:hover {
