@@ -3,20 +3,47 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-    background-color: #f4f7f6;
+    background-color: #e8ebed;
     color: #333;
     padding: 20px;
     line-height: 1.6;
 }
 
+/* Navigation Bar */
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #1b3a4b;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    color: #29788f;
+}
+
 /* Header styling */
 header {
     text-align: center;
-    background-color: #4CAF50;  /* Nice, inviting green */
+    background-color: #1b3a4b;  /* Deep blue */
     color: white;
     padding: 40px 20px;
     border-radius: 8px;
@@ -34,6 +61,26 @@ header p {
     margin: 0 auto;
 }
 
+/* CTA Buttons */
+.cta-buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
 /* Section styling */
 section {
     margin: 30px 0;
@@ -44,8 +91,36 @@ section {
 }
 
 h2 {
-    color: #333;
+    color: #1b3a4b;
     margin-bottom: 10px;
+}
+
+/* Project Cards */
+.project-card {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+    color: #1b3a4b;
+}
+
+.project-card p {
+    color: #555;
+}
+
+.project-card .btn {
+    background-color: #1b3a4b;
+    color: white;
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+    margin-top: 30px;
 }
 
 /* Footer styling */
@@ -56,21 +131,11 @@ footer {
 }
 
 footer a {
-    color: #4CAF50;
+    color: #1b3a4b;
     text-decoration: none;
     font-weight: bold;
 }
 
 footer a:hover {
-    text-decoration: underline;
-}
-
-/* Skills or Projects list styling */
-ul {
-    list-style-type: square;
-    margin-left: 20px;
-}
-
-li {
-    margin: 8px 0;
+    color: #29788f;
 }
