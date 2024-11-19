@@ -6,14 +6,15 @@
     font-family: 'Roboto', sans-serif;
 }
 
+/* Body background with a gradient */
 body {
-    background-color: #e8ebed;
-    color: #333;
+    background: linear-gradient(135deg, #0d0d0d, #2c2c2c);
+    color: #e8e8e8;
     padding: 20px;
     line-height: 1.6;
 }
 
-/* Navigation Bar */
+/* Navigation Bar with futuristic link styling */
 nav {
     text-align: center;
     margin-bottom: 20px;
@@ -30,91 +31,123 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #1b3a4b;
+    color: #00d4ff;
     font-weight: bold;
     text-decoration: none;
     font-size: 1.1em;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #00d4ff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #29788f;
+    color: #00ff88;
 }
 
-/* Header styling */
+nav ul li a:hover::before {
+    transform: scaleX(1);
+}
+
+/* Header styling with a subtle shadow */
 header {
     text-align: center;
-    background-color: #1b3a4b;  /* Deep blue */
-    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #e8e8e8;
     padding: 40px 20px;
     border-radius: 8px;
     margin-bottom: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
-    font-size: 2.5em;
+    font-size: 2.8em;
     margin-bottom: 10px;
 }
 
 header p {
-    font-size: 1.1em;
+    font-size: 1.2em;
     max-width: 600px;
     margin: 0 auto;
+    color: #b3b3b3;
 }
 
-/* CTA Buttons */
+/* CTA Buttons with a neon glow effect */
 .cta-buttons {
     margin-top: 20px;
 }
 
 .btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
+    background-color: #00d4ff;
+    color: #fff;
+    padding: 12px 24px;
     border-radius: 5px;
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.6);
 }
 
 .btn:hover {
-    background-color: #45a049;
+    background-color: #00ff88;
+    box-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
 }
 
-/* Section styling */
+/* Section styling with a card effect */
 section {
     margin: 30px 0;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+/* Header for each section */
 h2 {
-    color: #1b3a4b;
+    color: #00d4ff;
     margin-bottom: 10px;
+    text-shadow: 0 0 4px rgba(0, 212, 255, 0.5);
 }
 
-/* Project Cards */
+/* Project Cards with futuristic glow */
 .project-card {
-    background-color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
     margin-bottom: 15px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), 0 0 8px rgba(0, 212, 255, 0.2);
+    transition: transform 0.3s ease;
 }
 
 .project-card h3 {
-    color: #1b3a4b;
+    color: #00ff88;
+    margin-bottom: 8px;
 }
 
 .project-card p {
-    color: #555;
+    color: #b3b3b3;
 }
 
 .project-card .btn {
-    background-color: #1b3a4b;
+    background-color: #00ff88;
     color: white;
+    box-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 12px rgba(0, 212, 255, 0.3);
 }
 
 /* Contact Section */
@@ -128,14 +161,17 @@ footer {
     text-align: center;
     padding: 10px;
     margin-top: 30px;
+    color: #b3b3b3;
 }
 
 footer a {
-    color: #1b3a4b;
+    color: #00d4ff;
     text-decoration: none;
     font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
 footer a:hover {
-    color: #29788f;
+    color: #00ff88;
 }
