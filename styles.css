@@ -1,0 +1,45 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and basic layout */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 20px;
+}
+
+header {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+/* Sections */
+section {
+    margin: 20px 0;
+}
+
+h2 {
+    color: #333;
+}
+
+/* Links in footer */
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
