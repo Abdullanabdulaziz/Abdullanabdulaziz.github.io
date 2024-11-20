@@ -8,16 +8,16 @@
 
 /* Body background and typography */
 body {
-    background: linear-gradient(135deg, #6a1b9a, #8e24aa); /* Purple gradient */
+    background: linear-gradient(135deg, #1e3799, #38ada9);
     color: #f5f6fa;
-    padding: 40px;
+    padding: 20px;
     line-height: 1.6;
 }
 
 /* Navigation styling */
 nav {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 nav ul {
@@ -37,24 +37,24 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #ff4081;
+    color: #00ff88;
 }
 
 /* Header section with vibrant design */
 header {
     text-align: center;
-    background: linear-gradient(145deg, #3f51b5, #536dfe); /* Blue gradient */
-    padding: 100px 20px;
+    background: linear-gradient(145deg, #27ae60, #2ecc71);
+    padding: 80px 20px;
     border-radius: 15px;
-    margin-bottom: 80px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
-    font-size: 4em;
+    font-size: 3.8em;
     margin-bottom: 20px;
     color: #f5f6fa;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 header p {
@@ -65,65 +65,56 @@ header p {
 }
 
 .cta-buttons {
-    margin-top: 60px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 .cta-buttons .btn {
     background-color: #00d4ff;
     color: #fff;
-    padding: 20px 40px;
+    padding: 15px 40px;
     border-radius: 10px;
     font-weight: bold;
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 15px rgba(0, 212, 255, 0.6);
+    box-shadow: 0 4px 10px rgba(0, 212, 255, 0.6);
 }
 
 .cta-buttons .btn:hover {
-    background-color: #ff4081;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(255, 64, 129, 0.6);
+    background-color: #00ff88;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 255, 136, 0.6);
 }
 
-/* About section */
-#about {
-    text-align: center;
-    margin-top: 70px;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 50px;
-    border-radius: 15px;
-}
-
-/* Projects Section */
+/* Projects section */
 #projects {
-    margin-top: 80px;
+    margin-top: 60px;
     text-align: center;
 }
 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    gap: 30px;
 }
 
 .project-card {
-    background: linear-gradient(135deg, #536dfe, #3f51b5);
-    padding: 25px;
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
 }
 
 .project-card h3 {
     color: #ffffff;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .project-card p {
@@ -133,14 +124,14 @@ header p {
 .project-image {
     width: 100%;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .project-card a {
     text-decoration: none;
     background-color: #00d4ff;
-    padding: 15px 35px;
+    padding: 12px 30px;
     border-radius: 10px;
     color: #fff;
     font-weight: bold;
@@ -151,7 +142,7 @@ header p {
 /* Footer */
 footer {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 50px;
     padding: 20px;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 15px;
