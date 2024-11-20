@@ -52,15 +52,22 @@ header {
 
 header h1 {
     font-size: 3.5em;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #00ff88;
 }
 
 header p {
     font-size: 1.4em;
     max-width: 700px;
-    margin: 0 auto 40px auto;
+    margin: 0 auto;
     color: #dcdde1;
+}
+
+.cta-buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .cta-buttons .btn {
@@ -68,7 +75,6 @@ header p {
     color: #fff;
     padding: 15px 35px;
     border-radius: 8px;
-    margin: 10px;
     font-weight: bold;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
@@ -116,6 +122,17 @@ header p {
     color: #00d4ff;
 }
 
+.project-card p {
+    color: #bdc3c7;
+}
+
+.project-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
 .project-card a {
     text-decoration: none;
     background-color: #00d4ff;
@@ -124,12 +141,13 @@ header p {
     color: #fff;
     font-weight: bold;
     display: inline-block;
+    margin-top: 10px;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 40px;
     padding: 20px;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 12px;
