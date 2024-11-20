@@ -87,16 +87,7 @@ header p {
     box-shadow: 0 6px 15px rgba(0, 255, 136, 0.6);
 }
 
-/* About section */
-#about {
-    text-align: center;
-    margin-top: 40px;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 40px;
-    border-radius: 12px;
-}
-
-/* Projects Section */
+/* Projects section */
 #projects {
     margin-top: 60px;
     text-align: center;
