@@ -1,202 +1,25 @@
-/* Reset and basic styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Body background and typography */
 body {
-    background: linear-gradient(135deg, #6a1b9a, #8e24aa); /* Purple gradient */
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #4c2a8e, #8e44ad);
     color: #f5f6fa;
-    padding: 40px;
+    margin-top: 70px;
     line-height: 1.6;
 }
 
-/* Navigation styling */
-nav {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-nav ul {
-    list-style-type: none;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 20px;
-}
-
-nav ul li a {
-    color: #00d4ff;
-    text-decoration: none;
-    font-size: 1.1em;
-    position: relative;
-}
-
-nav ul li a:hover {
-    color: #ff4081;
-}
-
-/* Header section with vibrant design */
-header {
-    text-align: center;
-    background: linear-gradient(145deg, #3f51b5, #536dfe); /* Blue gradient */
-    padding: 100px 20px;
-    border-radius: 15px;
-    margin-bottom: 80px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-}
-
-header h1 {
-    font-size: 4em;
-    margin-bottom: 20px;
-    color: #f5f6fa;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-}
-
-header p {
-    font-size: 1.5em;
-    max-width: 700px;
-    margin: 0 auto;
-    color: #dcdde1;
-}
-
-.cta-buttons {
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.cta-buttons .btn {
-    background-color: #00d4ff;
+#hero {
+    background: linear-gradient(135deg, #3a6186, #89253e);
     color: #fff;
-    padding: 20px 40px;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 15px rgba(0, 212, 255, 0.6);
 }
 
-.cta-buttons .btn:hover {
-    background-color: #ff4081;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(255, 64, 129, 0.6);
+.card-title {
+    color: #3a6186;
 }
 
-/* About section */
-#about {
-    text-align: center;
-    margin-top: 70px;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 50px;
-    border-radius: 15px;
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Projects Section */
-#projects {
-    margin-top: 80px;
-    text-align: center;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
-
-.project-card {
-    background: linear-gradient(135deg, #536dfe, #3f51b5); /* Replaced green with blue gradient */
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
+.card:hover {
     transform: scale(1.05);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-}
-
-.project-card h3 {
-    color: #ffffff;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-}
-
-.project-card p {
-    color: #ecf0f1;
-}
-
-.project-image {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.project-card a {
-    text-decoration: none;
-    background-color: #00d4ff;
-    padding: 15px 35px;
-    border-radius: 10px;
-    color: #fff;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: 15px;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    margin-top: 60px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 15px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.8em;
-    }
-
-    header p {
-        font-size: 1.2em;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .cta-buttons .btn {
-        padding: 15px 30px;
-        font-size: 1.1em;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 2.2em;
-    }
-
-    header p {
-        font-size: 1em;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .cta-buttons .btn {
-        padding: 12px 25px;
-        font-size: 1em;
-    }
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }
