@@ -3,11 +3,22 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* Navbar */
 .navbar {
     background-color: #343a40;
+    z-index: 1000;
+}
+
+.navbar-nav .nav-link {
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff4081;
 }
 
 /* Hero Section */
@@ -18,6 +29,8 @@ body {
     color: #ffffff;
     text-align: center;
     padding: 100px 20px;
+    position: relative;
+    z-index: 1;
 }
 
 /* About Section */
@@ -26,18 +39,23 @@ body {
     color: #333;
 }
 
+#about h2 {
+    margin-bottom: 30px;
+}
+
 /* Projects Section */
 #projects .project-card {
-    background: #f7f7f7; /* Light color for contrast */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: #f7f7f7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
 }
 
 #projects .project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .project-link {
@@ -46,19 +64,61 @@ body {
 }
 
 .project-link:hover .project-card {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-/* Footer */
+#projects img {
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+#projects .col-md-6 {
+    margin-bottom: 30px;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
 footer {
-    color: #dcdde1;
+    background-color: #343a40;
 }
 
 footer a {
-    color: #00d4ff;
+    color: #ff4081;
     text-decoration: none;
 }
 
 footer a:hover {
-    color: #ff4081;
+    text-decoration: underline;
+}
+
+/* Animations */
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+    
+    .hero {
+        padding: 70px 20px;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    #projects .col-md-6 {
+        width: 100%;
+    }
 }

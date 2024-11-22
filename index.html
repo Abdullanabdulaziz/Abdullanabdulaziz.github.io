@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Abdulla Nabil</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,9 +18,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link smooth-scroll" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -29,9 +29,9 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="container text-center">
-            <h1>Building the Future Through Code</h1>
-            <p>Hi, I'm Abdulla Nabil, a Computer Engineer passionate about creating innovative and impactful software solutions.</p>
-            <div class="cta-buttons">
+            <h1 class="animate__animated animate__fadeIn animate__delay-1s">Building the Future Through Code</h1>
+            <p class="animate__animated animate__fadeIn animate__delay-2s">Hi, I'm Abdulla Nabil, a Computer Engineer passionate about creating innovative and impactful software solutions.</p>
+            <div class="cta-buttons animate__animated animate__fadeIn animate__delay-3s">
                 <a href="https://github.com/Abdullanabdulaziz" target="_blank" class="btn btn-primary">GitHub</a>
                 <a href="https://www.linkedin.com/in/abdulla-abdulaziz-65321b2bb/" target="_blank" class="btn btn-secondary">LinkedIn</a>
             </div>
@@ -41,8 +41,8 @@
     <!-- About Section -->
     <section id="about" class="py-5">
         <div class="container text-center">
-            <h2>About Me</h2>
-            <p>
+            <h2 class="animate__animated animate__fadeIn">About Me</h2>
+            <p class="animate__animated animate__fadeIn animate__delay-1s">
                 I’m a recent graduate in Computer Engineering, skilled in front-end and back-end development. I aim to create impactful technology that solves real-world problems and improves lives.
             </p>
         </div>
@@ -51,12 +51,12 @@
     <!-- Projects Section -->
     <section id="projects" class="py-5">
         <div class="container text-center">
-            <h2>My Projects</h2>
+            <h2 class="animate__animated animate__fadeIn">My Projects</h2>
             <div class="row">
                 <!-- Project 1 -->
                 <div class="col-md-6 col-lg-4 mb-4">
                     <a href="#" class="project-link">
-                        <div class="project-card">
+                        <div class="project-card animate__animated animate__fadeIn animate__delay-1s">
                             <img src="images/brain-tumor.jpg" alt="Health AI Diagnostic" class="img-fluid rounded">
                             <h3>Health AI Diagnostic</h3>
                             <p>Developed a web app for detecting brain tumors through MRI scans using machine learning and deep learning techniques.</p>
@@ -66,7 +66,7 @@
                 <!-- Project 2 -->
                 <div class="col-md-6 col-lg-4 mb-4">
                     <a href="https://abdullanabdulaziz.github.io/landing-page-template/" target="_blank" class="project-link">
-                        <div class="project-card">
+                        <div class="project-card animate__animated animate__fadeIn animate__delay-1s">
                             <img src="images/landing-page.jpg" alt="Landing Page" class="img-fluid rounded">
                             <h3>Creative Landing Template</h3>
                             <p>A modern, responsive landing page with smooth scrolling and animations.</p>
@@ -76,7 +76,7 @@
                 <!-- Project 3 -->
                 <div class="col-md-6 col-lg-4 mb-4">
                     <a href="#" class="project-link">
-                        <div class="project-card">
+                        <div class="project-card animate__animated animate__fadeIn animate__delay-2s">
                             <img src="images/social-app.jpg" alt="Social Media App" class="img-fluid rounded">
                             <h3>Connectify - Social App</h3>
                             <p>Backend architecture for user authentication, post management, and data storage using Node.js and MongoDB.</p>
@@ -86,7 +86,7 @@
                 <!-- Project 4 -->
                 <div class="col-md-6 col-lg-4 mb-4">
                     <a href="https://scandiwebproject.wuaze.com/?i=1" target="_blank" class="project-link">
-                        <div class="project-card">
+                        <div class="project-card animate__animated animate__fadeIn animate__delay-2s">
                             <img src="images/product-management.jpg" alt="Product Management Website" class="img-fluid rounded">
                             <h3>Dynamic Products Portal</h3>
                             <p>A freelance project made using React and PHP for managing products dynamically.</p>
@@ -100,7 +100,7 @@
     <!-- Contact Section -->
     <section id="contact" class="py-5 bg-light">
         <div class="container text-center">
-            <h2>Contact Me</h2>
+            <h2 class="animate__animated animate__fadeIn">Contact Me</h2>
             <p>If you’d like to connect, feel free to reach out via email or LinkedIn.</p>
             <p>Email: <a href="mailto:abdallahnabil830@gmail.com">abdallahnabil830@gmail.com</a></p>
         </div>
@@ -112,5 +112,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animate.css/animate.min.css"></script>
 </body>
 </html>
