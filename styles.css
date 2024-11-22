@@ -1,31 +1,54 @@
+/* General Reset */
 body {
+    margin: 0;
     font-family: 'Roboto', sans-serif;
-    background: #121212;
-    color: #ffffff;
-    margin-top: 70px;
     line-height: 1.6;
 }
 
+/* Navbar */
+.navbar {
+    background-color: #343a40;
+}
+
+/* Hero Section */
 .hero {
-    background: url('images/hero-bg.jpg') no-repeat center center / cover;
-    height: 100vh;
+    background-image: url('images/hero-image.png');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 100px 20px;
 }
 
-.section-title {
-    color: #00c4cc;
-    font-weight: bold;
-    text-transform: uppercase;
+/* About Section */
+#about {
+    background: #f8f9fa;
+    color: #333;
 }
 
-.card-title {
-    color: #00c4cc;
+/* Projects Section */
+#projects .project-card {
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 8px;
 }
 
-.card {
-    transition: transform 0.3s, box-shadow 0.3s;
+#projects .project-card:hover {
+    transform: translateY(-10px);
+    transition: 0.3s ease-in-out;
 }
 
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+/* Footer */
+footer {
+    color: #dcdde1;
+}
+
+footer a {
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ff4081;
 }

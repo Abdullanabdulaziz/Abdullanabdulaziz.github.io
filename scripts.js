@@ -1,8 +1,4 @@
-// Smooth scrolling for anchor links
-document.querySelectorAll('a.nav-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    const revealElements = document.querySelectorAll('.project-card, .hero, .about-section');
+    ScrollReveal().reveal(revealElements, { delay: 200, distance: '50px', duration: 800 });
 });
