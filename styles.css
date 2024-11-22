@@ -28,7 +28,7 @@ body {
 
 /* Projects Section */
 #projects .project-card {
-    background: #ffffff;
+    background: #f7f7f7; /* Light color for contrast */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 8px;
