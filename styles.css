@@ -1,18 +1,24 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #4c2a8e, #8e44ad);
-    color: #f5f6fa;
+    background: #121212;
+    color: #ffffff;
     margin-top: 70px;
     line-height: 1.6;
 }
 
-#hero {
-    background: linear-gradient(135deg, #3a6186, #89253e);
-    color: #fff;
+.hero {
+    background: url('images/hero-bg.jpg') no-repeat center center / cover;
+    height: 100vh;
+}
+
+.section-title {
+    color: #00c4cc;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .card-title {
-    color: #3a6186;
+    color: #00c4cc;
 }
 
 .card {
