@@ -32,11 +32,21 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #projects .project-card:hover {
-    transform: translateY(-10px);
-    transition: 0.3s ease-in-out;
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-link:hover .project-card {
+    transform: scale(1.1);
 }
 
 /* Footer */
