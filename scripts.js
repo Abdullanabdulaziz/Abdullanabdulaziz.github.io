@@ -42,13 +42,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbarNav');
 
     navbarToggler.addEventListener('click', () => {
-        navbar.classList.toggle('show');
+        const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+            navbar.classList.remove('show');
+            navbarToggler.setAttribute('aria-expanded', 'false');
+        } else {
+            navbar.classList.add('show');
+            navbarToggler.setAttribute('aria-expanded', 'true');
+        }
     });
 
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             if (navbar.classList.contains('show')) {
                 navbar.classList.remove('show');
+                navbarToggler.setAttribute('aria-expanded', 'false');
             }
         });
     });
