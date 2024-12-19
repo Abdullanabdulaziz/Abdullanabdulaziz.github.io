@@ -37,15 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('dark-mode');
     });
 
-    // Close Navbar after click on link
+    // Close Navbar on Link Click
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navbar = document.getElementById('navbarNav');
 
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             if (navbar.classList.contains('show')) {
-                navbarToggler.click(); // Simulate a click to rely on Bootstrap's toggling
+                navbarToggler.click(); // Trigger Bootstrap's built-in toggling
             }
         });
+    });
+
+    // Prevent Navbar Auto-Open
+    navbarToggler.addEventListener('click', (event) => {
+        const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
+        if (!isExpanded && navbar.classList.contains('show')) {
+            navbar.classList.remove('show'); // Force close if auto-open occurs
+        }
     });
 });
