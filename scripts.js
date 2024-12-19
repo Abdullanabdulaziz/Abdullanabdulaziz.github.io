@@ -42,7 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbarNav');
 
     navbarToggler.addEventListener('click', () => {
-        navbar.classList.toggle('show');
+        if (navbar.classList.contains('show')) {
+            navbar.classList.remove('show');
+            navbarToggler.classList.add('collapsed');
+            navbarToggler.setAttribute('aria-expanded', 'false');
+        } else {
+            navbar.classList.add('show');
+            navbarToggler.classList.remove('collapsed');
+            navbarToggler.setAttribute('aria-expanded', 'true');
+        }
     });
 
     document.querySelectorAll('.nav-link').forEach(link => {
@@ -53,5 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 navbarToggler.setAttribute('aria-expanded', 'false');
             }
         });
+    });
+
+    // Prevent Navbar from reopening due to auto-focus
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target) && !navbarToggler.contains(e.target)) {
+            if (navbar.classList.contains('show')) {
+                navbar.classList.remove('show');
+                navbarToggler.classList.add('collapsed');
+                navbarToggler.setAttribute('aria-expanded', 'false');
+            }
+        }
     });
 });
