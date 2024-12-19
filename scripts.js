@@ -1,21 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Particles.js
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 50 },
+            color: { value: '#ffffff' },
+            shape: { type: 'circle' },
+            opacity: { value: 0.5 },
+            size: { value: 3 },
+            line_linked: { enable: true, color: '#ffffff' },
+            move: { enable: true, speed: 2 }
+        }
+    });
+
     // Smooth scroll
-    const links = document.querySelectorAll('.smooth-scroll');
-    links.forEach(link => {
+    document.querySelectorAll('.smooth-scroll').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
-            const targetId = e.target.getAttribute('href').slice(1);
+            const targetId = link.getAttribute('href').substring(1);
             document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
         });
     });
 
-    // Scroll reveal for elements
-    const revealElements = document.querySelectorAll('.project-card, .hero, .about-section, .testimonial');
-    ScrollReveal().reveal(revealElements, { delay: 200, distance: '50px', duration: 800 });
-
     // Dark mode toggle
     const darkModeSwitch = document.getElementById('dark-mode-switch');
-    darkModeSwitch.addEventListener('change', () => {
+    darkModeSwitch.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
     });
 });

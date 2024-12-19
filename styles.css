@@ -5,6 +5,15 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
+
+/* Particles Background */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
 /* Dark Mode */
 body.dark-mode {
     background-color: #121212;
@@ -19,6 +28,27 @@ body.dark-mode .progress-bar {
     background-color: #ff4081;
 }
 
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.dark-mode-toggle button {
+    background-color: #343a40;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle button:hover {
+    background-color: #ff4081;
+}
 
 /* Navbar */
 .navbar {
@@ -37,12 +67,9 @@ body.dark-mode .progress-bar {
 
 /* Hero Section */
 .hero {
-    background-image: url('images/hero-image.png');
-    background-size: cover;
-    background-position: center;
     color: #ffffff;
     text-align: center;
-    padding: 100px 20px;
+    padding: 150px 20px;
     position: relative;
     z-index: 1;
 }
@@ -55,6 +82,23 @@ body.dark-mode .progress-bar {
 
 #about h2 {
     margin-bottom: 30px;
+}
+
+/* Skills Section */
+#skills .progress {
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#skills .progress-bar {
+    height: 100%;
+    background-color: #007bff;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 /* Projects Section */

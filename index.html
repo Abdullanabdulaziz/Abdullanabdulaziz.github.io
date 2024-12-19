@@ -10,14 +10,15 @@
     <meta name="description" content="Portfolio of Abdulla Nabil, a Computer Engineer specializing in innovative and impactful software solutions.">
     <meta name="keywords" content="Portfolio, Abdulla Nabil, Software Developer, Projects, WordPress Plugin">
     <meta name="author" content="Abdulla Nabil">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <!-- Dynamic Background -->
+    <div id="particles-js"></div>
+
     <!-- Dark Mode Toggle -->
     <div class="dark-mode-toggle">
-        <label>
-            <input type="checkbox" id="dark-mode-switch">
-            Dark Mode
-        </label>
+        <button id="dark-mode-switch" class="btn btn-secondary">Toggle Dark Mode</button>
     </div>
 
     <!-- Navigation -->
@@ -32,7 +33,6 @@
                     <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link smooth-scroll" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link smooth-scroll" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link smooth-scroll" href="#testimonials">Testimonials</a></li>
                     <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -93,7 +93,26 @@
         <div class="container text-center">
             <h2 class="animate__animated animate__fadeIn">My Projects</h2>
             <div class="row">
-                <!-- Project Cards Here -->
+                <!-- Project 1 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <a href="#" class="project-link">
+                        <div class="project-card animate__animated animate__fadeIn animate__delay-1s">
+                            <img src="images/brain-tumor.jpg" alt="Health AI Diagnostic" class="img-fluid rounded">
+                            <h3>Health AI Diagnostic</h3>
+                            <p>Developed a web app for detecting brain tumors through MRI scans using machine learning and deep learning techniques.</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <a href="https://abdullanabdulaziz.github.io/landing-page-template/" target="_blank" class="project-link">
+                        <div class="project-card animate__animated animate__fadeIn animate__delay-1s">
+                            <img src="images/landing-page.jpg" alt="Landing Page" class="img-fluid rounded">
+                            <h3>Creative Landing Template</h3>
+                            <p>A modern, responsive landing page with smooth scrolling and animations.</p>
+                        </div>
+                    </a>
+                </div>
                 <!-- WordPress Plugin -->
                 <div class="col-md-6 col-lg-4 mb-4">
                     <a href="https://github.com/Abdullanabdulaziz/elementor-page-duplicator" target="_blank" class="project-link">
@@ -108,18 +127,8 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-5 bg-light">
-        <div class="container text-center">
-            <h2>Testimonials</h2>
-            <blockquote class="blockquote">
-                "Abdulla's work on our website exceeded expectations!" - Client A
-            </blockquote>
-        </div>
-    </section>
-
     <!-- Contact Section -->
-    <section id="contact" class="py-5">
+    <section id="contact" class="py-5 bg-light">
         <div class="container text-center">
             <h2 class="animate__animated animate__fadeIn">Contact Me</h2>
             <p>If you’d like to connect, feel free to reach out via email or LinkedIn.</p>
@@ -133,7 +142,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/animate.css/animate.min.css"></script>
     <script src="script.js"></script>
 </body>
 </html>
