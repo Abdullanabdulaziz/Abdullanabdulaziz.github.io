@@ -36,4 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
     darkModeSwitch.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
     });
+
+    // Navbar Collapse Fix
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    navbarToggler.addEventListener('click', () => {
+        const navbar = document.getElementById('navbarNav');
+        navbar.classList.toggle('show');
+    });
 });
