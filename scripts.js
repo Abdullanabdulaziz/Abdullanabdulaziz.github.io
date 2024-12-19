@@ -37,23 +37,26 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('dark-mode');
     });
 
-    // Close Navbar on Link Click
-    const navbarToggler = document.querySelector('.navbar-toggler');
+    // Navbar Toggle Fix Using Bootstrap Events
     const navbar = document.getElementById('navbarNav');
+    const navbarToggler = document.querySelector('.navbar-toggler');
 
+    // Close navbar when a link is clicked
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            if (navbar.classList.contains('show')) {
-                navbarToggler.click(); // Trigger Bootstrap's built-in toggling
-            }
+            const bsCollapse = new bootstrap.Collapse(navbar, { toggle: false });
+            bsCollapse.hide(); // Bootstrap's hide method ensures proper collapse behavior
         });
     });
 
-    // Prevent Navbar Auto-Open
-    navbarToggler.addEventListener('click', (event) => {
-        const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
-        if (!isExpanded && navbar.classList.contains('show')) {
-            navbar.classList.remove('show'); // Force close if auto-open occurs
-        }
+    // Synchronize Navbar Toggler
+    navbar.addEventListener('hide.bs.collapse', () => {
+        navbarToggler.classList.add('collapsed');
+        navbarToggler.setAttribute('aria-expanded', 'false');
+    });
+
+    navbar.addEventListener('show.bs.collapse', () => {
+        navbarToggler.classList.remove('collapsed');
+        navbarToggler.setAttribute('aria-expanded', 'true');
     });
 });
