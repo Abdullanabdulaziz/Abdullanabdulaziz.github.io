@@ -39,8 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Navbar Collapse Fix
     const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbar = document.getElementById('navbarNav');
+
     navbarToggler.addEventListener('click', () => {
-        const navbar = document.getElementById('navbarNav');
         navbar.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navbar.classList.contains('show')) {
+                navbar.classList.remove('show');
+            }
+        });
     });
 });
