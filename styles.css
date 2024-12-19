@@ -67,6 +67,9 @@ body.dark-mode .progress-bar {
 
 /* Hero Section */
 .hero {
+    background-image: url('images/hero-image.png');
+    background-size: cover;
+    background-position: center;
     color: #ffffff;
     text-align: center;
     padding: 150px 20px;
