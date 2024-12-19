@@ -5,6 +5,20 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .navbar {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .progress-bar {
+    background-color: #ff4081;
+}
+
 
 /* Navbar */
 .navbar {
