@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Particles.js
     particlesJS('particles-js', {
         particles: {
-            number: { value: 50 },
+            number: { value: 80 },
             color: { value: '#ffffff' },
             shape: { type: 'circle' },
             opacity: { value: 0.5 },
             size: { value: 3 },
             line_linked: { enable: true, color: '#ffffff' },
-            move: { enable: true, speed: 2 }
+            move: { enable: true, speed: 1 }
         }
     });
 
