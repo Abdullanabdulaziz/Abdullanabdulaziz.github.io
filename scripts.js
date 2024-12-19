@@ -9,10 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
             size: { value: 3 },
             line_linked: { enable: true, color: '#ffffff' },
             move: { enable: true, speed: 1 }
+        },
+        interactivity: {
+            events: {
+                onhover: { enable: true, mode: 'repulse' },
+                onclick: { enable: true, mode: 'push' }
+            },
+            modes: {
+                repulse: { distance: 100 },
+                push: { particles_nb: 4 }
+            }
         }
     });
 
-    // Smooth scroll
+    // Smooth Scroll for Links
     document.querySelectorAll('.smooth-scroll').forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
@@ -21,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Dark mode toggle
+    // Dark Mode Toggle
     const darkModeSwitch = document.getElementById('dark-mode-switch');
     darkModeSwitch.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');

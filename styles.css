@@ -4,6 +4,7 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* Particles Background */
@@ -28,7 +29,6 @@ body.dark-mode .progress-bar {
     background-color: #ff4081;
 }
 
-/* Dark Mode Toggle Button */
 .dark-mode-toggle {
     position: fixed;
     top: 20px;
@@ -43,11 +43,14 @@ body.dark-mode .progress-bar {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .dark-mode-toggle button:hover {
     background-color: #ff4081;
+    transform: scale(1.1);
 }
 
 /* Navbar */
@@ -70,17 +73,17 @@ body.dark-mode .progress-bar {
     background-image: url('images/hero-image.png');
     background-size: cover;
     background-position: center;
-    color: #ffffff;
     text-align: center;
     padding: 150px 20px;
-    position: relative;
-    z-index: 1;
+    color: #ffffff;
 }
 
 /* About Section */
 #about {
     background: #f8f9fa;
     color: #333;
+    padding: 50px 20px;
+    text-align: center;
 }
 
 #about h2 {
@@ -88,6 +91,16 @@ body.dark-mode .progress-bar {
 }
 
 /* Skills Section */
+#skills {
+    padding: 50px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.bg-gradient {
+    background: linear-gradient(to right, #007bff, #6c63ff);
+}
+
 #skills .progress {
     height: 20px;
     background-color: #e9ecef;
@@ -105,6 +118,11 @@ body.dark-mode .progress-bar {
 }
 
 /* Projects Section */
+#projects {
+    padding: 50px 20px;
+    text-align: center;
+}
+
 #projects .project-card {
     background: #f7f7f7;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -143,10 +161,16 @@ body.dark-mode .progress-bar {
 #contact {
     background-color: #f8f9fa;
     color: #333;
+    padding: 50px 20px;
+    text-align: center;
 }
 
+/* Footer */
 footer {
     background-color: #343a40;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
 }
 
 footer a {
