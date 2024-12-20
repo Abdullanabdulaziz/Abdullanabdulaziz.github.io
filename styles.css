@@ -29,6 +29,7 @@ body.dark-mode .progress-bar {
     background-color: #ff4081;
 }
 
+/* Dark Mode Toggle */
 .dark-mode-toggle {
     position: fixed;
     top: 20px;
@@ -104,13 +105,13 @@ body.dark-mode .progress-bar {
 #skills h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #fff; /* Ensure text is visible */
+    color: #fff;
 }
 
 #skills p {
     font-size: 1rem;
     margin-bottom: 20px;
-    color: #f0f0f0; /* Lighter color for better visibility */
+    color: #f0f0f0;
 }
 
 #skills .progress {
