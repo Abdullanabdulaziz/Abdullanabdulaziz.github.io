@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 repulse: { distance: 100 },
                 push: { particles_nb: 4 }
             }
-        }
+        },
+        retina_detect: true
     });
 
     // Smooth Scroll for Links
@@ -45,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             const bsCollapse = new bootstrap.Collapse(navbar, { toggle: false });
-            bsCollapse.hide(); // Bootstrap's hide method ensures proper collapse behavior
+            bsCollapse.hide();
         });
     });
 
@@ -59,4 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
         navbarToggler.classList.remove('collapsed');
         navbarToggler.setAttribute('aria-expanded', 'true');
     });
+
+    // Debugging Particles Visibility
+    const particleContainer = document.getElementById('particles-js');
+    if (!particleContainer) {
+        console.error("Particles.js container not found! Ensure 'particles-js' div exists in the HTML.");
+    }
 });
