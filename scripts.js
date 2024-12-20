@@ -60,4 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
         navbarToggler.classList.remove('collapsed');
         navbarToggler.setAttribute('aria-expanded', 'true');
     });
+
+    // Debugging Particles Visibility
+    const particleContainer = document.getElementById('particles-js');
+    if (!particleContainer) {
+        console.error("Particles.js container not found! Ensure 'particles-js' div exists in the HTML.");
+    }
 });
