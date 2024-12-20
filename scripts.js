@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Particles.js
     particlesJS('particles-js', {
         particles: {
-            number: { value: 80 },
+            number: { value: 100 },
             color: { value: '#ffffff' },
             shape: { type: 'circle' },
             opacity: { value: 0.5 },
             size: { value: 3 },
             line_linked: { enable: true, color: '#ffffff' },
-            move: { enable: true, speed: 1 }
+            move: { enable: true, speed: 1.5 }
         },
         interactivity: {
             events: {
@@ -16,12 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 onclick: { enable: true, mode: 'push' }
             },
             modes: {
-                repulse: { distance: 100 },
-                push: { particles_nb: 4 }
+                repulse: { distance: 150 },
+                push: { particles_nb: 5 }
             }
         },
         retina_detect: true
     });
+
+    // Debug Particles.js Initialization
+    console.log("Particles.js has been initialized successfully.");
 
     // Smooth Scroll for Links
     document.querySelectorAll('.smooth-scroll').forEach(link => {
@@ -42,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbarNav');
     const navbarToggler = document.querySelector('.navbar-toggler');
 
-    // Close navbar when a link is clicked
+    // Close Navbar When a Link is Clicked
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             const bsCollapse = new bootstrap.Collapse(navbar, { toggle: false });
@@ -50,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Synchronize Navbar Toggler
+    // Synchronize Navbar Toggler State
     navbar.addEventListener('hide.bs.collapse', () => {
         navbarToggler.classList.add('collapsed');
         navbarToggler.setAttribute('aria-expanded', 'false');
@@ -60,10 +63,4 @@ document.addEventListener('DOMContentLoaded', () => {
         navbarToggler.classList.remove('collapsed');
         navbarToggler.setAttribute('aria-expanded', 'true');
     });
-
-    // Debugging Particles Visibility
-    const particleContainer = document.getElementById('particles-js');
-    if (!particleContainer) {
-        console.error("Particles.js container not found! Ensure 'particles-js' div exists in the HTML.");
-    }
 });

@@ -7,12 +7,12 @@ body {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* Particles Background */
+/* Particles.js Background */
 #particles-js {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: #000; /* Fallback black background */
+    background: #000000; /* Fallback black background */
     z-index: -1;
 }
 
@@ -96,7 +96,7 @@ body.dark-mode .progress-bar {
 #skills {
     padding: 50px 20px;
     text-align: center;
-    color: #fff;
+    color: #ffffff;
 }
 
 .bg-gradient {
@@ -106,13 +106,13 @@ body.dark-mode .progress-bar {
 #skills h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #fff; /* Ensure text is visible */
+    color: #ffffff; /* Bright text for better visibility */
 }
 
 #skills p {
     font-size: 1rem;
     margin-bottom: 20px;
-    color: #f0f0f0; /* Lighter color for better visibility */
+    color: #f0f0f0; /* Lighter text for contrast */
 }
 
 #skills .progress {
