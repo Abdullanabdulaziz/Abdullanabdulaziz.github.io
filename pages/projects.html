@@ -527,7 +527,7 @@
                 
                 // Apply mouse movement effect
                 particlesMesh.rotation.x = mouseY * 0.5;
-                particlesMesh.rotation.y = mouseX * 0.5;
+                particlesMesh.rotation.y += mouseX * 0.001;
                 
                 renderer.render(scene, camera);
             }
@@ -535,18 +535,6 @@
             // Start animation
             animate();
         });
-            // Check if Three.js is loaded
-            if (typeof THREE === 'undefined') {
-                console.error('Three.js not loaded');
-                return;
-            }
-
-            // Get canvas element
-            const canvas = document.getElementById('threejs-bg');
-            if (!canvas) {
-                console.error('Canvas element not found');
-                return;
-            }
 
             // Set canvas size
             function resizeCanvas() {
