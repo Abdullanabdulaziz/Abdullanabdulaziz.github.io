@@ -40,10 +40,6 @@ function setTheme(theme) {
   const isDarkMode = theme === 'dark';
   const html = document.documentElement;
   
-  // Debug: Log current state
-  console.log('Current html data-theme:', html.getAttribute('data-theme'));
-  console.log('Body has dark-mode class:', document.body.classList.contains('dark-mode'));
-  
   // Set theme on html element
   html.setAttribute('data-theme', theme);
   
@@ -51,7 +47,10 @@ function setTheme(theme) {
   if (isDarkMode) {
     body.classList.add('dark-mode');
     // Update theme color meta tag
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0f172a');
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) {
+      themeColor.setAttribute('content', '#0f172a');
+    }
     
     // Update all theme toggles on the page
     document.querySelectorAll('.theme-toggle').forEach(toggle => {
@@ -63,7 +62,10 @@ function setTheme(theme) {
   } else {
     body.classList.remove('dark-mode');
     // Update theme color meta tag
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f3f2f9');
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) {
+      themeColor.setAttribute('content', '#f3f2f9');
+    }
     
     // Update all theme toggles on the page
     document.querySelectorAll('.theme-toggle').forEach(toggle => {
@@ -77,16 +79,12 @@ function setTheme(theme) {
   // Force repaint to ensure styles are applied
   document.body.offsetHeight;
   
-  // Reinitialize particles with the correct theme
-  if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
-    // Destroy existing particles
-    pJSDom = document.querySelectorAll('#particles-js > canvas');
-    for (let i = 0; i < pJSDom.length; i++) {
-      pJSDom[i].remove();
-    }
-    
-    // Reinitialize with new theme
-    initParticles(isDarkMode);
+  // Reinitialize particles with the correct theme if the container exists
+  if (document.getElementById('particles-js')) {
+    // Use setTimeout to ensure the theme is fully applied before reinitializing particles
+    setTimeout(() => {
+      initParticles(isDarkMode);
+    }, 50);
   }
 }
 
@@ -303,6 +301,23 @@ window.addEventListener('scroll', () => {
 const initParticles = (isDarkMode = false) => {
   if (typeof particlesJS === 'undefined') return;
   
+  // Initialize pJSDom if it doesn't exist
+  if (typeof window.pJSDom === 'undefined') {
+    window.pJSDom = [];
+  }
+  
+  // Remove existing particles if any
+  const particlesContainer = document.getElementById('particles-js');
+  if (!particlesContainer) return;
+  
+  // Clear existing canvas elements
+  const existingCanvases = particlesContainer.getElementsByTagName('canvas');
+  while (existingCanvases[0]) {
+    existingCanvases[0].remove();
+  }
+  
+  // Initialize new particles
+  window.pJSDom = [];
   particlesJS('particles-js', {
     particles: {
       number: {
