@@ -194,18 +194,7 @@ function erase() {
 // Start the typing effect on page load
 if (typedTextSpan) {
   document.addEventListener('DOMContentLoaded', () => {
-    // Clear any initial text to prevent duplication
-    typedTextSpan.textContent = '';
-    // Set initial state
-    textArrayIndex = 0;
-    charIndex = 0;
-    // Start typing after a short delay
-    if (textArray.length) {
-      // Add a small delay to ensure the DOM is ready
-      setTimeout(() => {
-        type();
-      }, 500);
-    }
+    if (textArray.length) setTimeout(type, newTextDelay + 250);
   });
 }
 
