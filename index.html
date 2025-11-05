@@ -49,14 +49,9 @@
 <body>
     <!-- Splash Screen -->
     <div class="splashscreen">
-        <div class="splashscreen-content">
-            <div class="loading-animation">
-                <svg data-name="deconstructedLogo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72" class="icons-style">
-                    <circle id="Sphere" cx="31.019" cy="18.93" r="3.555"></circle>
-                    <path id="Magnet1" d="M61.028,23.378a3.555,3.555,0,0,0-6.682-2.432,4.39,4.39,0,0,1-8.25-3,3.555,3.555,0,1,0-6.682-2.432,11.5,11.5,0,0,0,21.614,7.867Z"></path>
-                    <path id="Wave" d="M24.221,27.153a4.387,4.387,0,0,1-5.607-1.76A11.436,11.436,0,0,0,13.56,20.8a3.555,3.555,0,1,0-3.005,6.444,4.358,4.358,0,0,1,1.925,1.748,11.5,11.5,0,0,0,14.7,4.627,4.389,4.389,0,0,1,5.608,1.759,11.43,11.43,0,0,0,5.053,4.595,3.556,3.556,0,0,0,3.006-6.445,4.353,4.353,0,0,1-1.926-1.747,11.5,11.5,0,0,0-14.7-4.627Z"></path>
-                    <path id="Magnet2" d="M13.411,43.392a3.555,3.555,0,0,0,5.825,4.078,4.39,4.39,0,1,1,7.191,5.036,3.555,3.555,0,0,0,5.825,4.078A11.5,11.5,0,1,0,13.411,43.392Z"></path>
-                    <path id="OpenLoop" d="M61.5,47.329A11.5,11.5,0,0,0,50,35.829a3.556,3.556,0,1,0,0,7.111,4.389,4.389,0,1,1-4.39,4.389,3.556,3.556,0,0,0-7.111,0,11.5,11.5,0,0,0,23,0Z"></path>
+        <div class="splash-content">
+            <div class="spinner"></div>
+            <h2>Loading...</h2>
                 </svg>
             </div>
             <p class="loading-text">Loading...</p>
@@ -375,7 +370,7 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
-    <script src="main.js"></script>
+    <script src="main.js?v=1.0.1"></script>
     <script>
         // Initialize ScrollReveal
         ScrollReveal().reveal('.animate-on-scroll', {
