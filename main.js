@@ -213,7 +213,6 @@ scrollReveal.reveal('.skill-item', { interval: 100 });
 
 // Navbar scroll effect
 let lastScroll = 0;
-const header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
