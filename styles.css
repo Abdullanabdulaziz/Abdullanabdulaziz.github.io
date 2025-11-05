@@ -395,33 +395,97 @@ body.dark-mode .theme-toggle:hover {
   height: 100%;
   background-color: var(--color-bg);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 9999;
-  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  transition: opacity 0.5s ease, visibility 0.5s;
 }
 
 body.dark-mode .splashscreen {
   background-color: var(--color-dark-bg);
 }
 
-.splashscreen.hidden {
-  opacity: 0;
-  visibility: hidden;
+.splash-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
-.loading-animation {
-  width: 50px;
-  height: 50px;
-  border: 3px solid var(--color-primary);
+.loading-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-text::after {
+  content: '...';
+  position: absolute;
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}
+
+.shape-loader {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.shape {
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary);
   border-radius: 50%;
-  border-top-color: transparent;
-  animation: spin 1s linear infinite;
-  margin-bottom: var(--space-md);
+  animation: shapeAnimation 2s ease-in-out infinite;
+  transform: scale(0);
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.shape-1 {
+  background: #FF6B6B;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  background: #4ECDC4;
+  animation-delay: 0.2s;
+}
+
+.shape-3 {
+  background: #45B7D1;
+  animation-delay: 0.4s;
+}
+
+.shape-4 {
+  background: #FFD166;
+  animation-delay: 0.6s;
+}
+
+@keyframes shapeAnimation {
+  0%, 100% {
+    transform: scale(0) rotate(0deg);
+    border-radius: 50%;
+  }
+  25% {
+    transform: scale(1.2) rotate(45deg);
+    border-radius: 5px;
+  }
+  50% {
+    transform: scale(1) rotate(90deg);
+    border-radius: 50%;
+  }
+  75% {
+    transform: scale(1.2) rotate(135deg);
+    border-radius: 5px;
+  }
 }
 
 .loading-text {
