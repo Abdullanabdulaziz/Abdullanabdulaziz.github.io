@@ -1,4 +1,61 @@
 /* ==========================================================================
+   #CUSTOM CURSOR
+   ========================================================================== */
+.cursor,
+.cursor-shadow {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+  will-change: transform;
+}
+
+.cursor {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-primary);
+  z-index: 10000;
+  mix-blend-mode: difference;
+}
+
+.cursor-shadow {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  transition: all 0.3s ease;
+}
+
+/* Hide default cursor */
+html {
+  cursor: none;
+}
+
+/* Show default cursor on interactive elements */
+a, button, input, textarea, select, [role="button"], [tabindex] {
+  cursor: none;
+}
+
+/* Hover effects */
+a:hover ~ .cursor,
+button:hover ~ .cursor,
+[role="button"]:hover ~ .cursor,
+[tabindex]:hover ~ .cursor {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: var(--color-accent);
+}
+
+a:hover ~ .cursor-shadow,
+button:hover ~ .cursor-shadow,
+[role="button"]:hover ~ .cursor-shadow,
+[tabindex]:hover ~ .cursor-shadow {
+  transform: translate(-50%, -50%) scale(1.8);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
    #GENERAL
    ========================================================================== */
 

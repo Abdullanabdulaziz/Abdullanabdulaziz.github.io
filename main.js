@@ -235,6 +235,77 @@ window.addEventListener('scroll', () => {
   lastScroll = currentScroll;
 });
 
+// Custom Cursor
+const customCursor = document.querySelector('.cursor');
+const cursorShadow = document.querySelector('.cursor-shadow');
+let mouseX = 0;
+let mouseY = 0;
+let cursorX = 0;
+let cursorY = 0;
+let shadowX = 0;
+let shadowY = 0;
+
+// Update cursor position
+function updateCursor(e) {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+}
+
+// Animate cursor with requestAnimationFrame
+function animateCursor() {
+  // Easing for the cursor (faster)
+  cursorX += (mouseX - cursorX) * 0.2;
+  cursorY += (mouseY - cursorY) * 0.2;
+  
+  // Easing for the shadow (slower)
+  shadowX += (mouseX - shadowX) * 0.1;
+  shadowY += (mouseY - shadowY) * 0.1;
+  
+  // Apply positions
+  if (customCursor && cursorShadow) {
+    customCursor.style.transform = `translate(calc(${cursorX}px - 50%), calc(${cursorY}px - 50%))`;
+    cursorShadow.style.transform = `translate(calc(${shadowX}px - 50%), calc(${shadowY}px - 50%))`;
+  }
+  
+  requestAnimationFrame(animateCursor);
+}
+
+// Initialize cursor animation
+function initCursor() {
+  if (customCursor && cursorShadow) {
+    document.addEventListener('mousemove', updateCursor);
+    requestAnimationFrame(animateCursor);
+    
+    // Add hover effect for interactive elements
+    const interactiveElements = ['a', 'button', 'input', 'textarea', 'select', '[role="button"]', '[tabindex]'];
+    interactiveElements.forEach(selector => {
+      document.querySelectorAll(selector).forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          customCursor.classList.add('hover');
+          cursorShadow.classList.add('hover');
+        });
+        el.addEventListener('mouseleave', () => {
+          customCursor.classList.remove('hover');
+          cursorShadow.classList.remove('hover');
+        });
+      });
+    });
+  }
+}
+
+// Initialize cursor when DOM is loaded
+document.addEventListener('DOMContentLoaded', initCursor);
+
+// Fallback in case cursor elements are added dynamically
+const cursorObserver = new MutationObserver(() => {
+  if (document.querySelector('.cursor') && document.querySelector('.cursor-shadow')) {
+    initCursor();
+    cursorObserver.disconnect();
+  }
+});
+
+cursorObserver.observe(document.body, { childList: true, subtree: true });
+
 // Initialize particles.js if available
 if (typeof particlesJS !== 'undefined') {
   particlesJS('particles-js', {
