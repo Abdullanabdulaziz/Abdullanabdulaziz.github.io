@@ -4,22 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Cursor Styles */
-* {
-  cursor: url("data:image/svg+xml,%3Csvg width='24' height='30' viewBox='0 0 24 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2L20 16H12L8 22L6 18L2 22V2Z' fill='%23000'/%3E%3Cpath d='M3 3V19.5L5.5 17L10 20.5L11 18.5L5 14H18.5L3.5 3.5L3 3Z' fill='%23fff'/%3E%3C/svg%3E") 12 12, auto;
-  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
-}
-
-/* Pointer cursor for clickable elements */
-a, button, .btn, [role='button'], [onclick], [tabindex] {
-  cursor: url("data:image/svg+xml,%3Csvg width='24' height='30' viewBox='0 0 24 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2L20 16H12L8 22L6 18L2 22V2Z' fill='%232b6cb0'/%3E%3Cpath d='M3 3V19.5L5.5 17L10 20.5L11 18.5L5 14H18.5L3.5 3.5L3 3Z' fill='%23ebf8ff'/%3E%3C/svg%3E") 12 12, pointer;
-  transition: filter 0.2s ease;
-}
-
-a:hover, button:hover, .btn:hover, [role='button']:hover, [onclick]:hover, [tabindex]:hover {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-}
-
 :root {
   /* Colors */
   --color-primary: #606887;
