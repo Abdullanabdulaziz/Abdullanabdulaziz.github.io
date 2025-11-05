@@ -5,7 +5,177 @@ const themeToggle = document.getElementById('theme-toggle');
 const dotsMenuToggle = document.querySelector('.dots-menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const splashScreen = document.querySelector('.splashscreen');
-const navLinks = document.querySelectorAll('.nav-link');
+const app = document.getElementById('app');
+let currentPage = 'home';
+
+// Initialize the app
+function initApp() {
+  // Set initial page
+  showPage('home');
+  
+  // Add event listeners for navigation
+  document.querySelectorAll('.nav-button, .quick-link').forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetPage = button.dataset.page;
+      if (targetPage && targetPage !== currentPage) {
+        showPage(targetPage);
+      }
+    });
+  });
+  
+  // Back button functionality
+  const backButton = document.createElement('button');
+  backButton.className = 'back-button';
+  backButton.innerHTML = '<i class="fas fa-arrow-left"></i>';
+  backButton.addEventListener('click', () => showPage('home'));
+  document.body.appendChild(backButton);
+  
+  // Handle browser back/forward
+  window.addEventListener('popstate', (e) => {
+    const page = window.location.hash.replace('#', '') || 'home';
+    if (page !== currentPage) {
+      showPage(page, false);
+    }
+  });
+}
+
+// Show page with transition
+function showPage(pageId, updateHistory = true) {
+  const newPage = document.getElementById(pageId);
+  const currentPageEl = document.querySelector('.page.active');
+  
+  if (!newPage || (currentPageEl && currentPageEl.id === pageId)) return;
+  
+  // Add loading state
+  app.classList.add('page-transitioning');
+  
+  // Update current page
+  currentPage = pageId;
+  
+  // Update URL
+  if (updateHistory) {
+    const url = pageId === 'home' ? window.location.pathname : `#${pageId}`;
+    window.history.pushState({ page: pageId }, '', url);
+  }
+  
+  // Update body class
+  if (pageId === 'home') {
+    body.classList.remove('page-active');
+    document.querySelector('.back-button').style.display = 'none';
+  } else {
+    body.classList.add('page-active');
+    document.querySelector('.back-button').style.display = 'flex';
+  }
+  
+  // Start page transition
+  if (currentPageEl) {
+    currentPageEl.classList.add('leaving');
+    currentPageEl.classList.remove('active');
+    
+    // Wait for leave animation to complete
+    setTimeout(() => {
+      currentPageEl.classList.remove('leaving');
+      
+      // Show new page
+      newPage.classList.add('active');
+      
+      // Trigger reflow
+      void newPage.offsetWidth;
+      
+      // Remove loading state
+      setTimeout(() => {
+        app.classList.remove('page-transitioning');
+        
+        // Scroll to top
+        window.scrollTo(0, 0);
+        
+        // Load page content if needed
+        loadPageContent(pageId);
+      }, 50);
+    }, 300);
+  } else {
+    // First page load
+    newPage.classList.add('active');
+    app.classList.remove('page-transitioning');
+    loadPageContent(pageId);
+  }
+}
+
+// Load page content dynamically
+function loadPageContent(pageId) {
+  const page = document.getElementById(pageId);
+  if (!page || page.dataset.loaded) return;
+  
+  // Add loading indicator
+  page.innerHTML = `
+    <div class="page-loading">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+  `;
+  
+  // Simulate loading (replace with actual content loading)
+  setTimeout(() => {
+    // This would be replaced with actual content loading logic
+    const content = {
+      about: `
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <p>I'm a passionate Full Stack Developer with expertise in modern web technologies.</p>
+              <!-- Add your about content here -->
+            </div>
+          </div>
+        </div>
+      `,
+      skills: `
+        <div class="container">
+          <h2 class="section-title">My Skills</h2>
+          <div class="skills-grid">
+            <!-- Add your skills here -->
+          </div>
+        </div>
+      `,
+      projects: `
+        <div class="container">
+          <h2 class="section-title">My Projects</h2>
+          <div class="projects-grid">
+            <!-- Add your projects here -->
+          </div>
+        </div>
+      `,
+      contact: `
+        <div class="container">
+          <h2 class="section-title">Get in Touch</h2>
+          <div class="contact-form">
+            <!-- Add your contact form here -->
+          </div>
+        </div>
+      `
+    };
+    
+    page.innerHTML = content[pageId] || '<div class="container"><h2>Page not found</h2></div>';
+    page.dataset.loaded = 'true';
+    
+    // Initialize any page-specific scripts
+    if (typeof window[`init${pageId.charAt(0).toUpperCase() + pageId.slice(1)}Page`] === 'function') {
+      window[`init${pageId.charAt(0).toUpperCase() + pageId.slice(1)}Page`]();
+    }
+  }, 500);
+}
+
+// Initialize the app when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Check for hash on initial load
+  const hash = window.location.hash.replace('#', '');
+  if (hash) {
+    showPage(hash, false);
+  } else {
+    initApp();
+  }
+});
 
 // Check for saved theme preference or use system preference
 const savedTheme = localStorage.getItem('theme') || 
