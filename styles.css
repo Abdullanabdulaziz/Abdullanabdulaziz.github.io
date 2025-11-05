@@ -919,7 +919,12 @@ body.dark-mode .wheel {
     justify-content: center;
     transition: all var(--animation-duration) cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 2;
-    color: var(--color-text);
+    color: #333; /* Default dark color for light mode */
+}
+
+/* Dark mode specific styles */
+[data-theme="dark"] .header-actions .theme-toggle__icon {
+    color: #fff; /* White color for dark mode */
 }
 
 /* Sun and Moon Icons */
