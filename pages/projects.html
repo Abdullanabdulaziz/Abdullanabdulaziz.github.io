@@ -441,14 +441,42 @@
     <script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
     <script src="https://unpkg.com/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
     <script>
-        // Initialize Three.js particles
+        // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if Three.js is loaded
-            if (typeof THREE === 'undefined') {
-                console.error('Three.js not loaded');
-                return;
+            // Initialize Three.js particles if available
+            if (typeof THREE !== 'undefined') {
+                initParticles();
             }
+            
+            // Initialize ScrollReveal
+            const sr = ScrollReveal({
+                origin: 'bottom',
+                distance: '30px',
+                duration: 1000,
+                delay: 200,
+                reset: false
+            });
 
+            sr.reveal('.project-card', {
+                interval: 200,
+                easing: 'cubic-bezier(0.5, 0, 0, 1)'
+            });
+
+            // Add tilt effect to project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                VanillaTilt.init(card, {
+                    max: 15,
+                    speed: 400,
+                    glare: true,
+                    'max-glare': 0.2,
+                    scale: 1.02
+                });
+            });
+        });
+
+        // Initialize Three.js particles
+        function initParticles() {
             // Get canvas element
             const canvas = document.getElementById('threejs-bg');
             if (!canvas) {
@@ -622,7 +650,15 @@
             }
             
             // Handle window resize
-            window.addEventListener('resize', resizeCanvas);
+            function handleResize() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            }
+            
+            window.addEventListener('resize', handleResize);
             
             // Start animation
             animate();
