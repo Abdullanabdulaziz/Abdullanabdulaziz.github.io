@@ -862,12 +862,15 @@ body.dark-mode .wheel {
   100% { transform: translate(-50%, 10px); opacity: 0; }
 }
 
-/* Theme Toggle - Modern Switch Style */
-.theme-toggle {
+/* ==================
+   THEME TOGGLE STYLES
+   ================== */
+
+/* Base Toggle Styles */
+.header-actions .theme-toggle {
     --toggle-size: 40px;
-    --icon-size: 18px;
-    --toggle-padding: 4px;
-    --animation-duration: 0.3s;
+    --icon-size: 20px;
+    --animation-duration: 0.4s;
     
     position: relative;
     width: var(--toggle-size);
@@ -878,32 +881,35 @@ body.dark-mode .wheel {
     background: none;
     cursor: pointer;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     -webkit-tap-highlight-color: transparent;
-    overflow: hidden;
+    overflow: visible;
+    z-index: 1001;
 }
 
-.theme-toggle:focus {
+.header-actions .theme-toggle:focus {
     outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
 }
 
-.theme-toggle__track {
+.header-actions .theme-toggle__track {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: linear-gradient(45deg, #6366f1, #8b5cf6);
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    opacity: 0.1;
+    transition: all var(--animation-duration) ease;
+    z-index: 1;
+}
+
+.header-actions .theme-toggle:hover .theme-toggle__track {
     opacity: 0.2;
-    transition: opacity var(--animation-duration) ease;
+    transform: scale(1.05);
 }
 
-.theme-toggle:hover .theme-toggle__track {
-    opacity: 0.3;
-}
-
-.theme-toggle__icon {
+.header-actions .theme-toggle__icon {
     position: relative;
     width: var(--icon-size);
     height: var(--icon-size);
@@ -913,97 +919,99 @@ body.dark-mode .wheel {
     justify-content: center;
     transition: all var(--animation-duration) cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 2;
+    color: var(--color-text);
 }
 
-/* Sun (Light Mode) Icon */
-.theme-toggle__icon::before,
-.theme-toggle__icon::after {
+/* Sun and Moon Icons */
+.header-actions .theme-toggle__icon::before,
+.header-actions .theme-toggle__icon::after {
     content: '';
     position: absolute;
     background: currentColor;
-    transition: all var(--animation-duration) ease;
+    transition: all var(--animation-duration) cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
 }
 
-/* Sun rays */
-.theme-toggle__icon::before {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    box-shadow: 
-        0 0 0 2px currentColor,
-        0 0 0 4px transparent,
-        0 0 0 6px currentColor,
-        0 0 0 8px transparent,
-        0 0 0 10px currentColor;
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* Moon (Dark Mode) Icon */
-.theme-toggle__icon::after {
-    content: '🌙';
-    width: 100%;
-    height: 100%;
+/* Sun Icon (Light Mode) */
+.header-actions .theme-toggle__icon::before {
+    content: '🌞';
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: var(--icon-size);
+    line-height: 1;
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+/* Moon Icon (Dark Mode) */
+.header-actions .theme-toggle__icon::after {
+    content: '🌙';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
     font-size: var(--icon-size);
     line-height: 1;
     opacity: 0;
-    transform: scale(0.5) rotate(90deg);
+    transform: scale(0.8) rotate(-30deg);
 }
 
-/* Dark mode styles */
-[data-theme="dark"] .theme-toggle__icon::before {
+/* Dark Mode Styles */
+[data-theme="dark"] .header-actions .theme-toggle__icon::before {
     opacity: 0;
-    transform: scale(0.5) rotate(-90deg);
+    transform: scale(0.8) rotate(90deg);
 }
 
-[data-theme="dark"] .theme-toggle__icon::after {
+[data-theme="dark"] .header-actions .theme-toggle__icon::after {
     opacity: 1;
-    transform: scale(1) rotate(0);
-    content: '☀️';
+    transform: scale(1) rotate(0deg);
 }
 
-/* Hover effects */
-.theme-toggle:hover .theme-toggle__icon {
-    transform: rotate(15deg);
+/* Hover Effects */
+.header-actions .theme-toggle:hover .theme-toggle__icon::before {
+    transform: scale(1.1) rotate(15deg);
 }
 
-[data-theme="dark"] .theme-toggle:hover .theme-toggle__icon {
-    transform: rotate(-15deg);
+[data-theme="dark"] .header-actions .theme-toggle:hover .theme-toggle__icon::after {
+    transform: scale(1.1) rotate(-15deg);
 }
 
-/* Focus state */
-.theme-toggle:focus-visible {
-    box-shadow: 0 0 0 3px var(--color-primary);
-}
-
-/* Active state */
-.theme-toggle:active .theme-toggle__icon {
+/* Active State */
+.header-actions .theme-toggle:active .theme-toggle__icon::before,
+.header-actions .theme-toggle:active .theme-toggle__icon::after {
     transform: scale(0.9);
 }
 
-/* Ripple effect */
-.theme-toggle::after {
+/* Ripple Effect */
+.header-actions .theme-toggle {
+    position: relative;
+    overflow: hidden;
+}
+
+.header-actions .theme-toggle::after {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 10%, transparent 10.01%);
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 10.01%);
     background-repeat: no-repeat;
     background-position: 50%;
     opacity: 0;
-    transition: transform 0.5s, opacity 1s;
+    transition: transform 0.6s, opacity 1s;
     pointer-events: none;
+    z-index: 3;
 }
 
-.theme-toggle:active::after {
-    opacity: 0.3;
-    transform: scale(0);
-    transition: 0s;
+.header-actions .theme-toggle:active::after {
+    opacity: 0.5;
+    transform: scale(5);
+    transition: transform 0.6s, opacity 0.6s;
 }
 
 /* Navbar */
