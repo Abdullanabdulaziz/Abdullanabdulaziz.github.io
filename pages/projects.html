@@ -31,6 +31,117 @@
     
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: {
+                            value: 80,
+                            density: {
+                                enable: true,
+                                value_area: 800
+                            }
+                        },
+                        color: {
+                            value: ['#6366f1', '#8b5cf6', '#ec4899', '#f43f5e', '#f59e0b']
+                        },
+                        shape: {
+                            type: 'circle',
+                            stroke: {
+                                width: 0,
+                                color: '#000000'
+                            }
+                        },
+                        opacity: {
+                            value: 0.5,
+                            random: true,
+                            anim: {
+                                enable: true,
+                                speed: 1,
+                                opacity_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        size: {
+                            value: 3,
+                            random: true,
+                            anim: {
+                                enable: true,
+                                speed: 2,
+                                size_min: 0.1,
+                                sync: false
+                            }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: '#8b5cf6',
+                            opacity: 0.4,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 2,
+                            direction: 'none',
+                            random: true,
+                            straight: false,
+                            out_mode: 'out',
+                            bounce: false,
+                            attract: {
+                                enable: true,
+                                rotateX: 600,
+                                rotateY: 1200
+                            }
+                        }
+                    },
+                    interactivity: {
+                        detect_on: 'window',
+                        events: {
+                            onhover: {
+                                enable: true,
+                                mode: 'grab'
+                            },
+                            onclick: {
+                                enable: true,
+                                mode: 'push'
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            grab: {
+                                distance: 140,
+                                line_linked: {
+                                    opacity: 0.8
+                                }
+                            },
+                            push: {
+                                particles_nb: 4
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+
+            // Initialize ScrollReveal for animations
+            if (typeof ScrollReveal !== 'undefined') {
+                const sr = ScrollReveal({
+                    origin: 'bottom',
+                    distance: '30px',
+                    duration: 1000,
+                    delay: 200,
+                    reset: false
+                });
+
+                sr.reveal('.project-card', {
+                    interval: 200,
+                    easing: 'cubic-bezier(0.5, 0, 0, 1)'
+                });
+            }
+        });
+    </script>
 </head>
 <body>
     <!-- Splash Screen -->
@@ -283,131 +394,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
     <script src="../main.js"></script>
-    <script>
-        // Initialize particles.js with custom configuration
-        document.addEventListener('DOMContentLoaded', function() {
-            if (document.getElementById('particles-js')) {
-                particlesJS('particles-js', {
-                    particles: {
-                        number: {
-                            value: 80,
-                            density: {
-                                enable: true,
-                                value_area: 800
-                            }
-                        },
-                        color: {
-                            value: ['#6366f1', '#8b5cf6', '#ec4899', '#f43f5e', '#f59e0b']
-                        },
-                        shape: {
-                            type: 'circle',
-                            stroke: {
-                                width: 0,
-                                color: '#000000'
-                            },
-                            polygon: {
-                                nb_sides: 5
-                            }
-                        },
-                        opacity: {
-                            value: 0.5,
-                            random: true,
-                            anim: {
-                                enable: true,
-                                speed: 1,
-                                opacity_min: 0.1,
-                                sync: false
-                            }
-                        },
-                        size: {
-                            value: 3,
-                            random: true,
-                            anim: {
-                                enable: true,
-                                speed: 2,
-                                size_min: 0.1,
-                                sync: false
-                            }
-                        },
-                        line_linked: {
-                            enable: true,
-                            distance: 150,
-                            color: '#8b5cf6',
-                            opacity: 0.4,
-                            width: 1
-                        },
-                        move: {
-                            enable: true,
-                            speed: 2,
-                            direction: 'none',
-                            random: true,
-                            straight: false,
-                            out_mode: 'out',
-                            bounce: false,
-                            attract: {
-                                enable: true,
-                                rotateX: 600,
-                                rotateY: 1200
-                            }
-                        }
-                    },
-                    interactivity: {
-                        detect_on: 'canvas',
-                        events: {
-                            onhover: {
-                                enable: true,
-                                mode: 'grab'
-                            },
-                            onclick: {
-                                enable: true,
-                                mode: 'push'
-                            },
-                            resize: true
-                        },
-                        modes: {
-                            grab: {
-                                distance: 140,
-                                line_linked: {
-                                    opacity: 0.8
-                                }
-                            },
-                            push: {
-                                particles_nb: 4
-                            }
-                        }
-                    },
-                    retina_detect: true
-                });
-            }
-
-            // Initialize ScrollReveal for animations
-            const sr = ScrollReveal({
-                origin: 'bottom',
-                distance: '30px',
-                duration: 1000,
-                delay: 200,
-                reset: true
-            });
-
-            sr.reveal('.project-card', {
-                interval: 200,
-                easing: 'cubic-bezier(0.5, 0, 0, 1)'
-            });
-
-            // Update particles on theme change
-            const themeToggle = document.getElementById('theme-toggle');
-            if (themeToggle) {
-                themeToggle.addEventListener('click', function() {
-                    // Reload particles with new colors after a short delay
-                    setTimeout(() => {
-                        if (typeof particlesJS !== 'undefined') {
-                            pJS = particlesJS('particles-js');
-                            pJS.fn.particlesRefresh();
-                        }
-                    }, 300);
-                });
-            }
-        });
-    </script>
 </body>
 </html>
