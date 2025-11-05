@@ -7,10 +7,23 @@ const navMenu = document.querySelector('.nav-menu');
 const splashScreen = document.querySelector('.splashscreen');
 const navLinks = document.querySelectorAll('.nav-link');
 
-// Check for saved theme preference or use system preference
-const savedTheme = localStorage.getItem('theme') || 
-                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-setTheme(savedTheme);
+// Initialize theme when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Check for saved theme preference or use system preference
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+  
+  // Set the theme
+  setTheme(savedTheme);
+  
+  // Initialize splash screen
+  initSplashScreen();
+  
+  // Initialize particles if needed
+  if (document.getElementById('particles-js')) {
+    initParticles(savedTheme === 'dark');
+  }
+});
 
 // Theme Toggle
 if (themeToggle) {
