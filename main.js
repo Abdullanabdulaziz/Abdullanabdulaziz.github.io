@@ -53,44 +53,51 @@ navLinks.forEach(link => {
   });
 });
 
-// Close mobile menu when clicking on overlay
-if (overlay) {
-  overlay.addEventListener('click', () => {
-    hamburgerBtn.classList.remove('is-active');
-    mobileMenu.classList.remove('is-active');
-    overlay.classList.remove('is-active');
-    body.style.overflow = '';
-  });
-}
 
 // Splash Screen
 function hideSplashScreen() {
+  const splashScreen = document.querySelector('.splashscreen');
   if (splashScreen) {
-    splashScreen.style.transition = 'opacity 0.5s ease, visibility 0.5s';
-    splashScreen.style.opacity = '0';
-    splashScreen.style.visibility = 'hidden';
+    try {
+      splashScreen.style.transition = 'opacity 0.5s ease, visibility 0.5s';
+      splashScreen.style.opacity = '0';
+      splashScreen.style.visibility = 'hidden';
+      document.body.style.overflow = 'auto';
+      
+      // Remove splash screen from DOM after animation completes
+      setTimeout(() => {
+        if (splashScreen && splashScreen.parentNode) {
+          splashScreen.parentNode.removeChild(splashScreen);
+        }
+      }, 500);
+    } catch (error) {
+      console.error('Error hiding splash screen:', error);
+      // Fallback: Just hide it immediately
+      splashScreen.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  } else {
     document.body.style.overflow = 'auto';
-    
-    // Remove splash screen from DOM after animation completes
-    setTimeout(() => {
-      if (splashScreen && splashScreen.parentNode) {
-        splashScreen.parentNode.removeChild(splashScreen);
-      }
-    }, 500);
   }
 }
 
-// Hide splash screen when everything is loaded
-if (document.readyState === 'complete') {
-  setTimeout(hideSplashScreen, 1000);
-} else {
-  window.addEventListener('load', () => {
+// Function to initialize splash screen
+function initSplashScreen() {
+  // Hide splash screen when everything is loaded
+  if (document.readyState === 'complete') {
     setTimeout(hideSplashScreen, 1000);
-  });
+  } else {
+    window.addEventListener('load', () => {
+      setTimeout(hideSplashScreen, 1000);
+    });
+  }
+
+  // Fallback in case the load event doesn't fire
+  setTimeout(hideSplashScreen, 3000);
 }
 
-// Fallback in case the load event doesn't fire
-setTimeout(hideSplashScreen, 3000);
+// Initialize splash screen
+document.addEventListener('DOMContentLoaded', initSplashScreen);
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
