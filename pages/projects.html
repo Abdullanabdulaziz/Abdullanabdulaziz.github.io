@@ -502,6 +502,8 @@
             // Mouse movement variables
             let mouseX = 0;
             let mouseY = 0;
+            let targetX = 0;
+            let targetY = 0;
             
             // Handle window resize
             function onWindowResize() {
@@ -514,8 +516,8 @@
             
             // Mouse move event
             document.addEventListener('mousemove', (event) => {
-                mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-                mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+                targetX = (event.clientX / window.innerWidth) * 2 - 1;
+                targetY = -(event.clientY / window.innerHeight) * 2 + 1;
             });
             
             // Animation loop
@@ -535,7 +537,9 @@
             // Start animation
             animate();
         });
-
+    </script>
+    <script src="../main.js"></script>
+    <script>
         // Initialize ScrollReveal
         document.addEventListener('DOMContentLoaded', function() {
             // Animate project cards
