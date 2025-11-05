@@ -191,11 +191,33 @@ function erase() {
   }
 }
 
-// Start the typing effect on page load
+// Start the typing effect after the splash screen
 if (typedTextSpan) {
-  document.addEventListener('DOMContentLoaded', () => {
-    if (textArray.length) setTimeout(type, newTextDelay + 250);
-  });
+  // Clear any existing content
+  typedTextSpan.textContent = '';
+  
+  // Start typing after a short delay to ensure the splash screen is gone
+  const startTyping = () => {
+    if (textArray.length) {
+      // Start with the first word after a short delay
+      setTimeout(type, 500);
+    }
+  };
+  
+  // If splash screen is still visible, wait for it to hide
+  const splashScreen = document.querySelector('.splashscreen');
+  if (splashScreen && window.getComputedStyle(splashScreen).display !== 'none') {
+    const observer = new MutationObserver((mutations, obs) => {
+      if (window.getComputedStyle(splashScreen).display === 'none') {
+        startTyping();
+        obs.disconnect(); // Stop observing once splash is hidden
+      }
+    });
+    observer.observe(splashScreen, { attributes: true, attributeFilter: ['style'] });
+  } else {
+    // If no splash screen or it's already hidden, start typing
+    startTyping();
+  }
 }
 
 // Scroll reveal animation
