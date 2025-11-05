@@ -23,14 +23,16 @@ if (themeToggle) {
 
 // Set theme function
 function setTheme(theme) {
-  if (theme === 'dark') {
+  const isDarkMode = theme === 'dark';
+  
+  if (isDarkMode) {
     body.classList.add('dark-mode');
     document.documentElement.setAttribute('data-theme', 'dark');
     // Update all theme toggles on the page
     document.querySelectorAll('.theme-toggle').forEach(toggle => {
       toggle.innerHTML = `
         <i class="fas fa-sun theme-icon"></i>
-        <i class="fas fa-moon theme-icon" style="display: none;"></i>
+        <i class="fas fa-moon theme-icon" style="display: none;">
       `;
     });
   } else {
@@ -39,10 +41,22 @@ function setTheme(theme) {
     // Update all theme toggles on the page
     document.querySelectorAll('.theme-toggle').forEach(toggle => {
       toggle.innerHTML = `
-        <i class="fas fa-sun theme-icon" style="display: none;"></i>
-        <i class="fas fa-moon theme-icon"></i>
+        <i class="fas fa-sun theme-icon" style="display: none;">
+        <i class="fas fa-moon theme-icon">
       `;
     });
+  }
+  
+  // Reinitialize particles with the correct theme
+  if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
+    // Destroy existing particles
+    pJSDom = document.querySelectorAll('#particles-js > canvas');
+    for (let i = 0; i < pJSDom.length; i++) {
+      pJSDom[i].remove();
+    }
+    
+    // Reinitialize with new theme
+    initParticles(isDarkMode);
   }
 }
 
@@ -144,7 +158,15 @@ function initSplashScreen() {
 }
 
 // Initialize splash screen
-document.addEventListener('DOMContentLoaded', initSplashScreen);
+document.addEventListener('DOMContentLoaded', () => {
+  initSplashScreen();
+  
+  // Initialize particles with current theme
+  const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (document.getElementById('particles-js')) {
+    initParticles(isDarkMode);
+  }
+});
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -248,7 +270,9 @@ window.addEventListener('scroll', () => {
 });
 
 // Initialize particles.js if available
-if (typeof particlesJS !== 'undefined') {
+const initParticles = (isDarkMode = false) => {
+  if (typeof particlesJS === 'undefined') return;
+  
   particlesJS('particles-js', {
     particles: {
       number: {
@@ -259,7 +283,7 @@ if (typeof particlesJS !== 'undefined') {
         }
       },
       color: {
-        value: '#2563eb'
+        value: isDarkMode ? '#818cf8' : '#6d28d9'
       },
       shape: {
         type: 'circle',
