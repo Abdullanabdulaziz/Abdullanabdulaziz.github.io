@@ -1,26 +1,11 @@
 // DOM Elements
 const body = document.body;
+const header = document.querySelector('.header');
 const themeToggle = document.getElementById('theme-toggle');
 const dotsMenuToggle = document.querySelector('.dots-menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const splashScreen = document.querySelector('.splashscreen');
-const header = document.querySelector('.header');
-
-// Theme Toggle
-let currentTheme = localStorage.getItem('theme') || 'light';
-setTheme(currentTheme);
-
-// Set theme function
-function setTheme(theme) {
-    if (theme === 'dark') {
-        body.classList.add('dark-mode');
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-        body.classList.remove('dark-mode');
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    }
-    localStorage.setItem('theme', theme);
-}
+const navLinks = document.querySelectorAll('.nav-link');
 
 // Check for saved theme preference or use system preference
 const savedTheme = localStorage.getItem('theme') || 
@@ -50,98 +35,104 @@ function setTheme(theme) {
 }
 
 // Toggle dots menu
-document.addEventListener('click', (e) => {
-    // Handle dots menu toggle
-    if (dotsMenuToggle && (e.target === dotsMenuToggle || dotsMenuToggle.contains(e.target))) {
-        e.stopPropagation();
-        header.classList.toggle('menu-open');
-        dotsMenuToggle.classList.toggle('active');
-        
-        // Toggle body scroll
-        if (header.classList.contains('menu-open')) {
-            body.style.overflow = 'hidden';
-        } else {
-            body.style.overflow = '';
-        }
-    }
+if (dotsMenuToggle) {
+  dotsMenuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    header.classList.toggle('menu-open');
+    dotsMenuToggle.classList.toggle('active');
     
-    // Close menu when clicking outside
-    if (header && header.classList.contains('menu-open') && 
-        !e.target.closest('.nav-menu') && 
-        !e.target.closest('.dots-menu-toggle')) {
-        header.classList.remove('menu-open');
-        if (dotsMenuToggle) dotsMenuToggle.classList.remove('active');
-        body.style.overflow = '';
+    // Toggle body scroll
+    if (header.classList.contains('menu-open')) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = '';
     }
+  });
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (header.classList.contains('menu-open') && 
+      !e.target.closest('.nav-menu') && 
+      !e.target.closest('.dots-menu-toggle')) {
+    header.classList.remove('menu-open');
+    dotsMenuToggle.classList.remove('active');
+    body.style.overflow = '';
+  }
 });
 
-// Theme toggle event listener
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-        setTheme(currentTheme);
-    });
-}
+// Close menu when clicking on nav links
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (header.classList.contains('menu-open')) {
+      header.classList.remove('menu-open');
+      dotsMenuToggle.classList.remove('active');
+      body.style.overflow = '';
+      
+      // Smooth scroll to section
+      const targetId = link.getAttribute('href');
+      if (targetId.startsWith('#')) {
+        e.preventDefault();
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }
+  });
+});
 
 
 // Splash Screen
 function hideSplashScreen() {
-    const splashScreen = document.querySelector('.splashscreen');
-    if (splashScreen) {
-        try {
-            splashScreen.style.transition = 'opacity 0.5s ease, visibility 0.5s';
-            splashScreen.style.opacity = '0';
-            splashScreen.style.visibility = 'hidden';
-            document.body.style.overflow = 'auto';
-            
-            // Remove splash screen from DOM after animation completes
-            setTimeout(() => {
-                if (splashScreen && splashScreen.parentNode) {
-                    splashScreen.parentNode.removeChild(splashScreen);
-                }
-            }, 500);
-        } catch (error) {
-            console.error('Error hiding splash screen:', error);
-            // Fallback: Just hide it immediately
-            splashScreen.style.display = 'none';
-            document.body.style.overflow = 'auto';
+  const splashScreen = document.querySelector('.splashscreen');
+  if (splashScreen) {
+    try {
+      splashScreen.style.transition = 'opacity 0.5s ease, visibility 0.5s';
+      splashScreen.style.opacity = '0';
+      splashScreen.style.visibility = 'hidden';
+      document.body.style.overflow = 'auto';
+      
+      // Remove splash screen from DOM after animation completes
+      setTimeout(() => {
+        if (splashScreen && splashScreen.parentNode) {
+          splashScreen.parentNode.removeChild(splashScreen);
         }
-    } else {
-        document.body.style.overflow = 'auto';
+      }, 500);
+    } catch (error) {
+      console.error('Error hiding splash screen:', error);
+      // Fallback: Just hide it immediately
+      splashScreen.style.display = 'none';
+      document.body.style.overflow = 'auto';
     }
+  } else {
+    document.body.style.overflow = 'auto';
+  }
 }
 
 // Function to initialize splash screen
 function initSplashScreen() {
-    // Hide splash screen when everything is loaded
-    if (document.readyState === 'complete') {
-        setTimeout(hideSplashScreen, 1000);
-    } else {
-        window.addEventListener('load', () => {
-            setTimeout(hideSplashScreen, 1000);
-        });
-    }
+  // Hide splash screen when everything is loaded
+  if (document.readyState === 'complete') {
+    setTimeout(hideSplashScreen, 1000);
+  } else {
+    window.addEventListener('load', () => {
+      setTimeout(hideSplashScreen, 1000);
+    });
+  }
 
-    // Fallback in case the load event doesn't fire
-    setTimeout(hideSplashScreen, 3000);
+  // Fallback in case the load event doesn't fire
+  setTimeout(hideSplashScreen, 3000);
 }
 
 // Initialize splash screen
-document.addEventListener('DOMContentLoaded', () => {
-    initSplashScreen();
-    
-    // Initialize ScrollReveal
-    if (typeof ScrollReveal !== 'undefined') {
-        ScrollReveal().reveal('.animate-on-scroll', {
-            delay: 200,
-            distance: '20px',
-            duration: 800,
-            easing: 'cubic-bezier(0.5, 0, 0, 1)',
-            interval: 200,
-            reset: true
-        });
-    }
-});
+document.addEventListener('DOMContentLoaded', initSplashScreen);
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
