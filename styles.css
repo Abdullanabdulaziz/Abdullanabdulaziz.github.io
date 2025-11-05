@@ -867,7 +867,7 @@ body.dark-mode .wheel {
    ================== */
 
 /* Base Toggle Styles */
-.header-actions .theme-toggle {
+.theme-toggle {
     --toggle-size: 40px;
     --icon-size: 20px;
     --animation-duration: 0.4s;
@@ -884,6 +884,11 @@ body.dark-mode .wheel {
     -webkit-tap-highlight-color: transparent;
     overflow: visible;
     z-index: 1001;
+    color: #333; /* Default dark color for light mode */
+}
+
+[data-theme="dark"] .theme-toggle {
+    color: #fff; /* White color for dark mode */
 }
 
 .header-actions .theme-toggle:focus {
@@ -902,6 +907,19 @@ body.dark-mode .wheel {
     opacity: 0.1;
     transition: all var(--animation-duration) ease;
     z-index: 1;
+}
+
+/* Ensure the icon is visible in both themes */
+.theme-toggle__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: var(--icon-size);
+    line-height: 1;
+    color: inherit; /* Inherit color from parent */
 }
 
 .header-actions .theme-toggle:hover .theme-toggle__track {
