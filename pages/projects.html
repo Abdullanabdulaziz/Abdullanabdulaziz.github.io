@@ -241,9 +241,17 @@
 
     <!-- Projects Section -->
     <section id="projects" class="projects-section py-5 position-relative">
-        <div class="particles-container">
-            <div id="particles-js"></div>
+        <!-- Background Elements -->
+        <div id="interactive-bg" class="interactive-bg">
+            <canvas id="threejs-bg"></canvas>
         </div>
+        <div class="gradient-overlay"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        
         <div class="container position-relative">
             <div class="section-header text-center mb-5">
                 <span class="section-tag">Portfolio</span>
@@ -255,9 +263,9 @@
                 </div>
                 <p class="section-subtitle mt-3">Explore my latest work and creative projects</p>
             </div>
-            <div class="row projects-grid">
+            <div class="row projects-grid g-4">
                 <!-- Project 1 -->
-                <div class="col-md-6 col-lg-4 mb-4">
+                <div class="col-12 col-sm-6 col-lg-4">
                     <div class="project-card h-100">
                         <div class="project-image">
                             <img src="../images/brain-tumor.jpg" alt="Health AI Diagnostic" class="img-fluid rounded">
@@ -415,20 +423,6 @@
         </div>
     </section>
 
-    <!-- Interactive Background -->
-    <div id="interactive-bg" class="interactive-bg">
-        <canvas id="threejs-bg" style="display: block;"></canvas>
-    </div>
-    
-    <!-- Gradient Overlay -->
-    <div class="gradient-overlay"></div>
-    
-    <!-- Floating Shapes -->
-    <div class="floating-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-    </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
