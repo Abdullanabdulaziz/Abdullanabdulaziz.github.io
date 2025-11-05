@@ -165,22 +165,6 @@ const newTextDelay = 2000;
 let textArrayIndex = 0;
 let charIndex = 0;
 
-// Initialize typing effect when the page loads
-function initTypingEffect() {
-  // Make sure elements exist
-  if (!typedTextSpan || !cursor) return;
-  
-  // Clear any existing content
-  typedTextSpan.textContent = '';
-  
-  // Start with the first word
-  textArrayIndex = 0;
-  charIndex = 0;
-  
-  // Start typing
-  type();
-}
-
 function type() {
   if (charIndex < textArray[textArrayIndex].length) {
     if (!cursor.classList.contains('typing')) cursor.classList.add('typing');
@@ -201,18 +185,29 @@ function erase() {
     setTimeout(erase, erasingDelay);
   } else {
     cursor.classList.remove('typing');
-    textArrayIndex = (textArrayIndex + 1) % textArray.length;
-    setTimeout(type, typingDelay + 500);
+    textArrayIndex++;
+    if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+    setTimeout(type, typingDelay + 1100);
   }
 }
 
-// Start the typing effect after the page loads
-window.addEventListener('load', () => {
-  // Wait for a short delay to ensure everything is loaded
-  setTimeout(() => {
-    initTypingEffect();
-  }, 500);
-});
+// Start the typing effect on page load
+if (typedTextSpan) {
+  document.addEventListener('DOMContentLoaded', () => {
+    // Clear any initial text to prevent duplication
+    typedTextSpan.textContent = '';
+    // Set initial state
+    textArrayIndex = 0;
+    charIndex = 0;
+    // Start typing after a short delay
+    if (textArray.length) {
+      // Add a small delay to ensure the DOM is ready
+      setTimeout(() => {
+        type();
+      }, 500);
+    }
+  });
+}
 
 // Scroll reveal animation
 const scrollReveal = ScrollReveal({
