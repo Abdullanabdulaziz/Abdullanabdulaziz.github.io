@@ -165,8 +165,11 @@
             reset: true
         });
 
-        // Update current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        // Set current year in footer if the element exists
+        const currentYearElement = document.getElementById('current-year');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
 
         // Initialize particles.js
         if (document.getElementById('particles-js')) {
