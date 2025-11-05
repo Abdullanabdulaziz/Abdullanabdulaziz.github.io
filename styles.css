@@ -399,6 +399,8 @@ body.dark-mode .theme-toggle:hover {
   align-items: center;
   z-index: 9999;
   transition: opacity 0.5s ease, visibility 0.5s;
+  opacity: 1;
+  visibility: visible;
 }
 
 body.dark-mode .splashscreen {
@@ -410,16 +412,29 @@ body.dark-mode .splashscreen {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 2rem;
+  min-height: 200px;
+  min-width: 300px;
 }
 
 .loading-text {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 600;
   color: var(--color-primary);
   margin: 0;
   position: relative;
-  overflow: hidden;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  animation: textPulse 2s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
 }
 
 .loading-text::after {
@@ -428,25 +443,22 @@ body.dark-mode .splashscreen {
   animation: dots 1.5s steps(4, end) infinite;
 }
 
-@keyframes dots {
-  0%, 20% { content: '.'; }
-  40% { content: '..'; }
-  60%, 100% { content: '...'; }
-}
-
 .shape-loader {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  transform: translateZ(0);
 }
 
 .shape {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   background: var(--color-primary);
   border-radius: 50%;
-  animation: shapeAnimation 2s ease-in-out infinite;
-  transform: scale(0);
+  animation: shapeAnimation 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  opacity: 0.9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  will-change: transform, border-radius;
 }
 
 .shape-1 {
@@ -456,35 +468,43 @@ body.dark-mode .splashscreen {
 
 .shape-2 {
   background: #4ECDC4;
-  animation-delay: 0.2s;
+  animation-delay: 0.15s;
 }
 
 .shape-3 {
   background: #45B7D1;
-  animation-delay: 0.4s;
+  animation-delay: 0.3s;
 }
 
 .shape-4 {
   background: #FFD166;
-  animation-delay: 0.6s;
+  animation-delay: 0.45s;
 }
 
 @keyframes shapeAnimation {
-  0%, 100% {
-    transform: scale(0) rotate(0deg);
+  0% {
+    transform: scale(0.8) rotate(0deg);
     border-radius: 50%;
   }
-  25% {
+  20% {
     transform: scale(1.2) rotate(45deg);
     border-radius: 5px;
   }
-  50% {
+  40% {
     transform: scale(1) rotate(90deg);
     border-radius: 50%;
   }
-  75% {
+  60% {
     transform: scale(1.2) rotate(135deg);
     border-radius: 5px;
+  }
+  80% {
+    transform: scale(1) rotate(180deg);
+    border-radius: 50%;
+  }
+  100% {
+    transform: scale(0.8) rotate(0deg);
+    border-radius: 50%;
   }
 }
 
