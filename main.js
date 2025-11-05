@@ -1,11 +1,10 @@
 // DOM Elements
 const body = document.body;
-const themeToggle = document.querySelector('.theme-toggle');
-const hamburgerBtn = document.querySelector('.hamburger-btn');
+const themeToggle = document.getElementById('theme-toggle');
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
-const overlay = document.querySelector('.overlay');
 const splashScreen = document.querySelector('.splashscreen');
-const navLinks = document.querySelectorAll('.nav-link');
+const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
 // Check for saved theme preference or use system preference
 const savedTheme = localStorage.getItem('theme') || 
@@ -35,22 +34,20 @@ function setTheme(theme) {
 }
 
 // Mobile Menu Toggle
-if (hamburgerBtn) {
-  hamburgerBtn.addEventListener('click', () => {
-    hamburgerBtn.classList.toggle('is-active');
-    mobileMenu.classList.toggle('is-active');
-    overlay.classList.toggle('is-active');
-    body.style.overflow = mobileMenu.classList.contains('is-active') ? 'hidden' : '';
+if (mobileMenuToggle) {
+  mobileMenuToggle.addEventListener('click', () => {
+    mobileMenuToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
   });
 }
 
 // Close mobile menu when clicking on a link
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
-    if (mobileMenu.classList.contains('is-active')) {
-      hamburgerBtn.classList.remove('is-active');
-      mobileMenu.classList.remove('is-active');
-      overlay.classList.remove('is-active');
+    if (mobileMenu.classList.contains('active')) {
+      mobileMenuToggle.classList.remove('active');
+      mobileMenu.classList.remove('active');
       body.style.overflow = '';
     }
   });
