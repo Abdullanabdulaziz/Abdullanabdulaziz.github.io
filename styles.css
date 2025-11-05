@@ -48,8 +48,68 @@
     pointer-events: none;
 }
 
+[data-theme="dark"] {
+    --color-bg: #0f172a;
+    --color-text: #f8fafc;
+    --color-primary: #818cf8;
+    --color-secondary: #a5b4fc;
+    --color-accent: #4f46e5;
+    --color-card-bg: rgba(30, 41, 59, 0.8);
+    --color-card-hover: rgba(44, 55, 86, 0.9);
+    --color-border: #334155;
+    --color-text-muted: #94a3b8;
+    --color-header-bg: rgba(15, 23, 42, 0.95);
+    --color-footer-bg: #0f172a;
+    --color-input-bg: #1e293b;
+    --color-input-text: #f8fafc;
+    --color-input-border: #334155;
+    --color-input-focus: #4f46e5;
+    --color-nav-bg: rgba(15, 23, 42, 0.98);
+    --color-nav-link: #cbd5e1;
+    --color-nav-link-hover: #ffffff;
+    --color-nav-link-active: #818cf8;
+    --color-section-bg: #0f172a;
+    --color-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    
+    /* Apply dark theme to the entire page */
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
 [data-theme="dark"] .gradient-overlay {
-    background: radial-gradient(circle at center, transparent 0%, var(--color-dark-bg) 100%);
+    background: radial-gradient(circle at center, transparent 0%, var(--color-bg) 100%);
+}
+
+/* About page specific dark mode styles */
+[data-theme="dark"] #about {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .about-content,
+[data-theme="dark"] .about-text,
+[data-theme="dark"] .section-header h2,
+[data-theme="dark"] .section-subtitle {
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .about-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--color-card-shadow);
+}
+
+[data-theme="dark"] .about-card:hover {
+    background-color: var(--color-card-hover);
+    transform: translateY(-5px);
+}
+
+[data-theme="dark"] .about-details p {
+    color: var(--color-text-muted);
+}
+
+[data-theme="dark"] .about-details strong {
+    color: var(--color-text);
 }
 
 /* Floating Shapes */
