@@ -866,11 +866,11 @@ body.dark-mode .wheel {
    THEME TOGGLE STYLES
    ================== */
 
-/* Base Toggle Styles */
+/* Theme Toggle */
 .theme-toggle {
     --toggle-size: 40px;
     --icon-size: 20px;
-    --animation-duration: 0.4s;
+    --animation-duration: 0.3s;
     
     position: relative;
     width: var(--toggle-size);
@@ -885,6 +885,10 @@ body.dark-mode .wheel {
     overflow: visible;
     z-index: 1001;
     color: #333; /* Default dark color for light mode */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--icon-size);
 }
 
 [data-theme="dark"] .theme-toggle {
@@ -894,6 +898,35 @@ body.dark-mode .wheel {
 .header-actions .theme-toggle:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
+}
+
+/* Theme toggle icons */
+.theme-toggle .theme-icon {
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+/* Moon icon (visible in light mode) */
+.theme-toggle .fa-moon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Sun icon (hidden in light mode) */
+.theme-toggle .fa-sun {
+    opacity: 0;
+    transform: scale(0.5) rotate(90deg);
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .theme-toggle .fa-moon {
+    opacity: 0;
+    transform: scale(0.5) rotate(-90deg);
+}
+
+[data-theme="dark"] .theme-toggle .fa-sun {
+    opacity: 1;
+    transform: scale(1) rotate(0);
 }
 
 .header-actions .theme-toggle__track {
