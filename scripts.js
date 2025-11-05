@@ -1,21 +1,24 @@
-// Particles.js configuration with enhanced interactivity
-particlesJS("particles-js", {
+// Enhanced Particle Background Configuration
+particlesJS('particles-js', {
     particles: {
         number: {
-            value: 100,
+            value: 80,
             density: {
                 enable: true,
                 value_area: 800
             }
         },
         color: {
-            value: "#ffffff"
+            value: ["#00bcd4", "#2196F3", "#3F51B5", "#9C27B0", "#E91E63", "#FF9800", "#4CAF50"]
         },
         shape: {
             type: "circle",
             stroke: {
                 width: 0,
                 color: "#000000"
+            },
+            polygon: {
+                nb_sides: 5
             }
         },
         opacity: {
@@ -34,7 +37,7 @@ particlesJS("particles-js", {
             anim: {
                 enable: true,
                 speed: 2,
-                size_min: 0.1,
+                size_min: 0.3,
                 sync: false
             }
         },
@@ -42,7 +45,7 @@ particlesJS("particles-js", {
             enable: true,
             distance: 150,
             color: "#ffffff",
-            opacity: 0.3,
+            opacity: 0.2,
             width: 1
         },
         move: {
@@ -65,7 +68,7 @@ particlesJS("particles-js", {
         events: {
             onhover: {
                 enable: true,
-                mode: "grab"
+                mode: ["grab", "bubble"]
             },
             onclick: {
                 enable: true,
@@ -77,11 +80,21 @@ particlesJS("particles-js", {
             grab: {
                 distance: 140,
                 line_linked: {
-                    opacity: 0.7
+                    opacity: 0.8
                 }
+            },
+            bubble: {
+                distance: 200,
+                size: 6,
+                duration: 0.3,
+                opacity: 0.8,
+                speed: 3
             },
             push: {
                 particles_nb: 4
+            },
+            remove: {
+                particles_nb: 2
             }
         }
     },
