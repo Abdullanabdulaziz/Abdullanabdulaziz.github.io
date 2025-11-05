@@ -91,23 +91,19 @@
                 <!-- Navigation Menu -->
                 <nav class="nav-menu">
                     <div class="nav-menu-content">
-                        <a href="index.html" class="nav-link active">
-                            <span>Home</span>
-                            <i class="fas fa-home"></i>
-                        </a>
-                        <a href="pages/about.html" class="nav-link">
+                        <a href="#about" class="nav-link">
                             <span>About</span>
                             <i class="fas fa-user"></i>
                         </a>
-                        <a href="pages/skills.html" class="nav-link">
+                        <a href="#skills" class="nav-link">
                             <span>Skills</span>
                             <i class="fas fa-code"></i>
                         </a>
-                        <a href="pages/projects.html" class="nav-link">
+                        <a href="#projects" class="nav-link">
                             <span>Projects</span>
                             <i class="fas fa-project-diagram"></i>
                         </a>
-                        <a href="pages/contact.html" class="nav-link">
+                        <a href="#contact" class="nav-link">
                             <span>Contact</span>
                             <i class="fas fa-envelope"></i>
                         </a>
@@ -123,76 +119,228 @@
             <div class="hero-content">
                 <div class="intro-wrapper">
                     <div class="intro-text">
-                        <h1 class="intro-title">Hi, I'm <span class="highlight">Abdulla Nabil</span></h1>
-                        <h2 class="intro-subtitle">Software Engineer</h2>
-                        <p class="intro-description">I build exceptional digital experiences with clean, efficient, and scalable code.</p>
-                        <div class="hero-buttons">
-                            <a href="pages/contact.html" class="btn btn-primary">Get In Touch</a>
-                            <a href="pages/projects.html" class="btn btn-outline-primary">View My Work</a>
+                        <h1 class="intro-heading">
+                            <span class="intro-line">Hey, I'm </span>
+                            <span class="name">Abdulla Nabil</span>
+                        </h1>
+                        <div class="intro-roles">
+                            <p class="intro-role">I'm a <span class="highlight">Software Engineer</span> with a passion for</p>
+                            <div class="typing-text">
+                                <span class="typed-text">Web Development</span>
+                                <span class="cursor">&nbsp;</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="hero-image">
-                        <div class="image-wrapper">
-                            <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" alt="Abdulla Nabil" class="profile-img">
-                            <div class="image-overlay"></div>
+                        <div class="intro-links">
+                            <a href="#projects" class="btn btn-primary">View My Work</a>
+                            <a href="#contact" class="btn btn-outline">Get In Touch</a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="scroll-down">
-                    <a href="pages/about.html" class="scroll-link">
-                        <span>Learn More About Me</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
+                <div class="hero-visual">
+                    <!-- Add your hero image or illustration here -->
+                    <div class="hero-image"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quick Links Section -->
-    <section class="quick-links py-5 bg-light">
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <p class="section-subtitle">Get to know me better</p>
+            </div>
+            <div class="about-content">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <div class="image-wrapper">
+                            <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" alt="Abdulla Nabil" class="profile-img">
+                            <div class="image-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <p>I'm a passionate Software Engineer with a background in Computer Engineering and hands-on experience in web development, automation, and plugin architecture. My work bridges creativity and functionality — I enjoy turning complex problems into simple, efficient digital solutions.</p>
+                        <p>Currently, I develop AI-powered WordPress plugins at Dotcom Matrix Ltd, where I focus on automation, SEO optimization, and backend performance. I've also built full-stack projects using React, PHP, and Python, and contributed to open-source applications.</p>
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Name:</span>
+                                <span class="detail-value">Abdulla Nabil</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Email:</span>
+                                <a href="mailto:abdallahnabil830@gmail.com" class="detail-value">abdallahnabil830@gmail.com</a>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Experience:</span>
+                                <span class="detail-value">3+ Years</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Location:</span>
+                                <span class="detail-value">Cairo, Egypt</span>
+                            </div>
+                        </div>
+                        <div class="about-cta">
+                            <a href="#contact" class="btn btn-primary me-3">Hire Me</a>
+                            <a href="#" class="btn btn-outline">Download CV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
         <div class="container">
             <div class="section-header text-center">
-                <h2>Explore More</h2>
-                <p class="section-subtitle">Discover what I can do for you</p>
+                <h2>My Skills</h2>
+                <p class="section-subtitle">Technologies I work with</p>
             </div>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <a href="pages/about.html" class="quick-link-card">
-                        <div class="quick-link-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <h3>About Me</h3>
-                        <p>Learn more about my background, experience, and what drives me.</p>
-                        <span class="quick-link-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </span>
-                    </a>
+            <div class="skills-container">
+                <div class="col-md-4">
+                    <h3>HTML & CSS</h3>
+                    <p>Building responsive and visually appealing websites.</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 90%;">90%</div>
+                    </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <a href="pages/skills.html" class="quick-link-card">
-                        <div class="quick-link-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>My Skills</h3>
-                        <p>Discover the technologies and tools I work with.</p>
-                        <span class="quick-link-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </span>
-                    </a>
+                <div class="col-md-4">
+                    <h3>JavaScript</h3>
+                    <p>Developing interactive and dynamic web applications.</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 85%;">85%</div>
+                    </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <a href="pages/contact.html" class="quick-link-card">
-                        <div class="quick-link-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Get In Touch</h3>
-                        <p>Have a project in mind? Let's talk about how I can help.</p>
-                        <span class="quick-link-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </span>
-                    </a>
+                <div class="col-md-4">
+                    <h3>React & Node.js</h3>
+                    <p>Building scalable web applications with modern technologies.</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 80%;">80%</div>
+                    </div>
                 </div>
+                <div class="col-md-4">
+                    <h3>WordPress</h3>
+                    <p>Creating and customizing WordPress websites and plugins.</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 90%;">90%</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3>Python</h3>
+                    <p>Automating tasks and developing back-end services.</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 80%;">80%</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3>Java</h3>
+                    <p>Building robust and object-oriented software solutions.</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 75%;">75%</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3>C</h3>
+                    <p>Developing system-level software with precision.</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 85%;">85%</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h3>C++</h3>
+                    <p>Implementing high-performance applications and systems.</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 80%;">80%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>My Projects</h2>
+                <p class="section-subtitle">Some of my recent work</p>
+            </div>
+            <div class="projects-grid">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="project-card">
+                        <img src="images/brain-tumor.jpg" alt="Health AI Diagnostic" class="img-fluid rounded">
+                        <h3>Health AI Diagnostic</h3>
+                        <p>Developed a web app for detecting brain tumors through MRI scans using machine learning and deep learning techniques.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="project-card">
+                        <img src="images/landing-page.jpg" alt="Creative Landing Page" class="img-fluid rounded">
+                        <h3>Creative Landing Template</h3>
+                        <p>A modern, responsive landing page with smooth scrolling and animations.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="project-card">
+                        <img src="images/social-app.jpg" alt="Social Media App" class="img-fluid rounded">
+                        <h3>Connectify - Social App</h3>
+                        <p>Backend architecture for user authentication, post management, and data storage using Node.js and MongoDB.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="project-card">
+                        <img src="images/product-management.jpg" alt="Product Management Website" class="img-fluid rounded">
+                        <h3>Dynamic Products Portal</h3>
+                        <p>A freelance project made using React and PHP for managing products dynamically.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="project-card">
+                        <img src="images/duplication-page.jpg" alt="Elementor Page Duplicator Plugin" class="img-fluid rounded">
+                        <h3>Elementor Page Duplicator Plugin</h3>
+                        <p>A lightweight WordPress plugin for duplicating Elementor pages and replacing words during duplication.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="project-card">
+                        <img src="images/notepad.png" alt="Notepad Web App" class="img-fluid rounded">
+                        <h3>Windows-like Notepad</h3>
+                        <p>A cross-platform notepad app built using Svelte, TailwindCSS, Shadcn, and Tauri for seamless, native performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container text-center">
+            <h2>Get In Touch</h2>
+            <p class="mb-5">I'd love to hear from you! Whether it's a project idea or just a quick hello, feel free to reach out.</p>
+            
+            <div class="contact-buttons">
+                <a href="mailto:abdallahnabil830@gmail.com" class="contact-btn email-btn">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email Me</span>
+                </a>
+                <a href="tel:+201064461082" class="contact-btn phone-btn">
+                    <i class="fas fa-phone"></i>
+                    <span>Call Me</span>
+                </a>
+                <a href="https://wa.me/201064461082" target="_blank" class="contact-btn whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+            
+            <div class="contact-info mt-4 text-center">
+                <p class="mb-3">Or reach me directly at:</p>
+                <p class="contact-email mb-2">
+                    <i class="fas fa-envelope me-2"></i>abdallahnabil830@gmail.com
+                </p>
+                <p class="contact-phone">
+                    <i class="fas fa-phone me-2"></i>+20 106 446 1082
+                </p>
             </div>
         </div>
     </section>
@@ -202,24 +350,29 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <a href="index.html" class="logo-link">abdulla.dev</a>
+                    <a href="#" class="logo-link">abdulla.dev</a>
                 </div>
                 <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="pages/about.html">About</a>
-                    <a href="pages/skills.html">Skills</a>
-                    <a href="pages/projects.html">Projects</a>
-                    <a href="pages/contact.html">Contact</a>
+                    <a href="#home" class="footer-link">Home</a>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#skills" class="footer-link">Skills</a>
+                    <a href="#projects" class="footer-link">Projects</a>
+                    <a href="#contact" class="footer-link">Contact</a>
                 </div>
                 <div class="social-links">
-                    <a href="https://github.com/Abdullanabdulaziz" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/abdulla-nabil" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://twitter.com/abdulla_nabil" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/abdulla_nabil" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/abdullanabil" target="_blank" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/abdullanabil" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/abdullanabil" target="_blank" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> Abdulla Nabil. All rights reserved.</p>
+                <p class="copyright">&copy; <span id="current-year">2025</span> Abdulla Nabil. All rights reserved.</p>
             </div>
         </div>
     </footer>
