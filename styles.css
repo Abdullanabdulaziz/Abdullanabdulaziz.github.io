@@ -865,99 +865,76 @@ body.dark-mode .wheel {
 /* Theme Toggle */
 .theme-toggle {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 40px;
     height: 40px;
-    margin-left: 15px;
-    z-index: 1001;
-}
-
-.theme-toggle button {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
     cursor: pointer;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: 1.1rem;
-    padding: 0;
-    position: relative;
-    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.theme-toggle button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-    border-radius: 50%;
+.theme-toggle:focus {
+    outline: none;
 }
 
-.theme-toggle button:hover {
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    border-color: transparent;
+.theme-toggle:active {
+    transform: scale(0.95);
 }
 
-.theme-toggle button:hover::before {
-    opacity: 1;
-}
-
-/* Dark mode specific styles */
-[data-theme="dark"] .theme-toggle button {
-    background: rgba(15, 23, 42, 0.5);
-    color: #e2e8f0;
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="dark"] .theme-toggle button:hover {
-    background: var(--color-primary);
-    color: white;
-}
-
-/* Icon transition */
 .theme-toggle i {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Sun icon (shown in dark mode) */
-[data-theme="dark"] .theme-toggle .fa-moon {
-    transform: rotate(180deg);
-    opacity: 0;
-}
-
-[data-theme="dark"] .theme-toggle .fa-sun {
-    transform: rotate(0deg);
-    opacity: 1;
     position: absolute;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--color-text);
 }
 
-/* Moon icon (shown in light mode) */
+/* Light theme */
 .theme-toggle .fa-moon {
-    transform: rotate(0deg);
     opacity: 1;
+    transform: scale(1) rotate(0deg);
 }
 
 .theme-toggle .fa-sun {
-    transform: rotate(-180deg);
     opacity: 0;
-    position: absolute;
+    transform: scale(0.5) rotate(90deg);
+}
+
+/* Dark theme */
+[data-theme="dark"] .theme-toggle .fa-moon {
+    opacity: 0;
+    transform: scale(0.5) rotate(-90deg);
+}
+
+[data-theme="dark"] .theme-toggle .fa-sun {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    color: #fff;
+}
+
+/* Hover effects */
+.theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Focus state */
+.theme-toggle:focus-visible {
+    box-shadow: 0 0 0 3px var(--color-primary);
+}
+
+/* Active state */
+.theme-toggle:active {
+    transform: scale(0.9);
 }
 
 /* Navbar */
