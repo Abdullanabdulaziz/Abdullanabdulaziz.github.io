@@ -73,29 +73,42 @@
                     </a>
                 </div>
                 
-                <nav class="nav-desktop">
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#skills" class="nav-link">Skills</a>
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#contact" class="nav-link">Contact</a>
+                <div class="header-actions">
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                         <i class="fas fa-moon"></i>
                     </button>
+                    
+                    <button class="dots-menu-toggle" aria-label="Toggle navigation menu">
+                        <div class="dots-menu">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </button>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <nav class="nav-menu">
+                    <div class="nav-menu-content">
+                        <a href="#about" class="nav-link">
+                            <span>About</span>
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <a href="#skills" class="nav-link">
+                            <span>Skills</span>
+                            <i class="fas fa-code"></i>
+                        </a>
+                        <a href="#projects" class="nav-link">
+                            <span>Projects</span>
+                            <i class="fas fa-project-diagram"></i>
+                        </a>
+                        <a href="#contact" class="nav-link">
+                            <span>Contact</span>
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
                 </nav>
-
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span class="hamburger"></span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="mobile-menu-content">
-                <a href="#about" class="mobile-nav-link">About</a>
-                <a href="#skills" class="mobile-nav-link">Skills</a>
-                <a href="#projects" class="mobile-nav-link">Projects</a>
-                <a href="#contact" class="mobile-nav-link">Contact</a>
             </div>
         </div>
     </header>
