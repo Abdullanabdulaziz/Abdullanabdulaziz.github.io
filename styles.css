@@ -901,32 +901,49 @@ body.dark-mode .wheel {
 }
 
 /* Theme toggle icons */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .theme-toggle {
+    background: rgba(255, 255, 255, 0.1);
+}
+
 .theme-toggle .theme-icon {
     position: absolute;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
+    color: inherit;
 }
 
-/* Moon icon (visible in light mode) */
-.theme-toggle .fa-moon {
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* Sun icon (hidden in light mode) */
+/* Hide the sun icon by default */
 .theme-toggle .fa-sun {
-    opacity: 0;
-    transform: scale(0.5) rotate(90deg);
+    display: none;
 }
 
-/* Dark mode styles */
+/* In dark mode, hide moon and show sun */
 [data-theme="dark"] .theme-toggle .fa-moon {
-    opacity: 0;
-    transform: scale(0.5) rotate(-90deg);
+    display: none;
 }
 
 [data-theme="dark"] .theme-toggle .fa-sun {
-    opacity: 1;
-    transform: scale(1) rotate(0);
+    display: block;
+}
+
+/* Hover effects */
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .header-actions .theme-toggle__track {

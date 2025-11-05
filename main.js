@@ -26,11 +26,23 @@ function setTheme(theme) {
   if (theme === 'dark') {
     body.classList.add('dark-mode');
     document.documentElement.setAttribute('data-theme', 'dark');
-    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    // Update all theme toggles on the page
+    document.querySelectorAll('.theme-toggle').forEach(toggle => {
+      toggle.innerHTML = `
+        <i class="fas fa-sun theme-icon"></i>
+        <i class="fas fa-moon theme-icon" style="display: none;"></i>
+      `;
+    });
   } else {
     body.classList.remove('dark-mode');
     document.documentElement.setAttribute('data-theme', 'light');
-    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    // Update all theme toggles on the page
+    document.querySelectorAll('.theme-toggle').forEach(toggle => {
+      toggle.innerHTML = `
+        <i class="fas fa-sun theme-icon" style="display: none;"></i>
+        <i class="fas fa-moon theme-icon"></i>
+      `;
+    });
   }
 }
 
