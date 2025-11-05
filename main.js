@@ -23,11 +23,23 @@ if (themeToggle) {
 
 // Set theme function
 function setTheme(theme) {
+  console.log('Setting theme to:', theme);
   const isDarkMode = theme === 'dark';
+  const html = document.documentElement;
   
+  // Debug: Log current state
+  console.log('Current html data-theme:', html.getAttribute('data-theme'));
+  console.log('Body has dark-mode class:', document.body.classList.contains('dark-mode'));
+  
+  // Set theme on html element
+  html.setAttribute('data-theme', theme);
+  
+  // Set theme on body
   if (isDarkMode) {
     body.classList.add('dark-mode');
-    document.documentElement.setAttribute('data-theme', 'dark');
+    // Update theme color meta tag
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0f172a');
+    
     // Update all theme toggles on the page
     document.querySelectorAll('.theme-toggle').forEach(toggle => {
       toggle.innerHTML = `
@@ -37,7 +49,9 @@ function setTheme(theme) {
     });
   } else {
     body.classList.remove('dark-mode');
-    document.documentElement.setAttribute('data-theme', 'light');
+    // Update theme color meta tag
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f3f2f9');
+    
     // Update all theme toggles on the page
     document.querySelectorAll('.theme-toggle').forEach(toggle => {
       toggle.innerHTML = `
@@ -46,6 +60,9 @@ function setTheme(theme) {
       `;
     });
   }
+  
+  // Force repaint to ensure styles are applied
+  document.body.offsetHeight;
   
   // Reinitialize particles with the correct theme
   if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {

@@ -70,10 +70,44 @@
     --color-nav-link-active: #818cf8;
     --color-section-bg: #0f172a;
     --color-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    
-    /* Apply dark theme to the entire page */
+}
+
+/* Apply dark theme to the entire page */
+[data-theme="dark"],
+[data-theme="dark"] body,
+[data-theme="dark"] .container,
+[data-theme="dark"] .section-header,
+[data-theme="dark"] .about-content,
+[data-theme="dark"] .about-text,
+[data-theme="dark"] .about-details,
+[data-theme="dark"] .about-card {
     background-color: var(--color-bg) !important;
-    color: var(--color-text);
+    color: var(--color-text) !important;
+}
+
+/* Ensure text is visible in dark mode */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] a,
+[data-theme="dark"] .section-subtitle,
+[data-theme="dark"] .detail-label,
+[data-theme="dark"] .detail-value {
+    color: var(--color-text) !important;
+}
+
+/* Style links in dark mode */
+[data-theme="dark"] a {
+    color: var(--color-primary);
+}
+
+[data-theme="dark"] a:hover {
+    color: var(--color-secondary);
 }
 
 /* Ensure the body and html elements have dark background */
