@@ -165,6 +165,22 @@ const newTextDelay = 2000;
 let textArrayIndex = 0;
 let charIndex = 0;
 
+// Initialize typing effect when the page loads
+function initTypingEffect() {
+  // Make sure elements exist
+  if (!typedTextSpan || !cursor) return;
+  
+  // Clear any existing content
+  typedTextSpan.textContent = '';
+  
+  // Start with the first word
+  textArrayIndex = 0;
+  charIndex = 0;
+  
+  // Start typing
+  type();
+}
+
 function type() {
   if (charIndex < textArray[textArrayIndex].length) {
     if (!cursor.classList.contains('typing')) cursor.classList.add('typing');
@@ -185,40 +201,18 @@ function erase() {
     setTimeout(erase, erasingDelay);
   } else {
     cursor.classList.remove('typing');
-    textArrayIndex++;
-    if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-    setTimeout(type, typingDelay + 1100);
+    textArrayIndex = (textArrayIndex + 1) % textArray.length;
+    setTimeout(type, typingDelay + 500);
   }
 }
 
-// Start the typing effect after the splash screen
-if (typedTextSpan) {
-  // Clear any existing content
-  typedTextSpan.textContent = '';
-  
-  // Start typing after a short delay to ensure the splash screen is gone
-  const startTyping = () => {
-    if (textArray.length) {
-      // Start with the first word after a short delay
-      setTimeout(type, 500);
-    }
-  };
-  
-  // If splash screen is still visible, wait for it to hide
-  const splashScreen = document.querySelector('.splashscreen');
-  if (splashScreen && window.getComputedStyle(splashScreen).display !== 'none') {
-    const observer = new MutationObserver((mutations, obs) => {
-      if (window.getComputedStyle(splashScreen).display === 'none') {
-        startTyping();
-        obs.disconnect(); // Stop observing once splash is hidden
-      }
-    });
-    observer.observe(splashScreen, { attributes: true, attributeFilter: ['style'] });
-  } else {
-    // If no splash screen or it's already hidden, start typing
-    startTyping();
-  }
-}
+// Start the typing effect after the page loads
+window.addEventListener('load', () => {
+  // Wait for a short delay to ensure everything is loaded
+  setTimeout(() => {
+    initTypingEffect();
+  }, 500);
+});
 
 // Scroll reveal animation
 const scrollReveal = ScrollReveal({
