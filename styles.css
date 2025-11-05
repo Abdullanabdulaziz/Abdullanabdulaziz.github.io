@@ -862,11 +862,16 @@ body.dark-mode .wheel {
   100% { transform: translate(-50%, 10px); opacity: 0; }
 }
 
-/* Theme Toggle */
+/* Theme Toggle - Modern Switch Style */
 .theme-toggle {
+    --toggle-size: 40px;
+    --icon-size: 18px;
+    --toggle-padding: 4px;
+    --animation-duration: 0.3s;
+    
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: var(--toggle-size);
+    height: var(--toggle-size);
     margin: 0;
     padding: 0;
     border: none;
@@ -876,55 +881,97 @@ body.dark-mode .wheel {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
     -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
 }
 
 .theme-toggle:focus {
     outline: none;
 }
 
-.theme-toggle:active {
-    transform: scale(0.95);
-}
-
-.theme-toggle i {
+.theme-toggle__track {
     position: absolute;
-    font-size: 1.1rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    color: var(--color-text);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #6366f1, #8b5cf6);
+    opacity: 0.2;
+    transition: opacity var(--animation-duration) ease;
 }
 
-/* Light theme */
-.theme-toggle .fa-moon {
+.theme-toggle:hover .theme-toggle__track {
+    opacity: 0.3;
+}
+
+.theme-toggle__icon {
+    position: relative;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--animation-duration) cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+}
+
+/* Sun (Light Mode) Icon */
+.theme-toggle__icon::before,
+.theme-toggle__icon::after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+    transition: all var(--animation-duration) ease;
+}
+
+/* Sun rays */
+.theme-toggle__icon::before {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 0 2px currentColor,
+        0 0 0 4px transparent,
+        0 0 0 6px currentColor,
+        0 0 0 8px transparent,
+        0 0 0 10px currentColor;
     opacity: 1;
-    transform: scale(1) rotate(0deg);
+    transform: scale(1);
 }
 
-.theme-toggle .fa-sun {
+/* Moon (Dark Mode) Icon */
+.theme-toggle__icon::after {
+    content: '🌙';
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--icon-size);
+    line-height: 1;
     opacity: 0;
     transform: scale(0.5) rotate(90deg);
 }
 
-/* Dark theme */
-[data-theme="dark"] .theme-toggle .fa-moon {
+/* Dark mode styles */
+[data-theme="dark"] .theme-toggle__icon::before {
     opacity: 0;
     transform: scale(0.5) rotate(-90deg);
 }
 
-[data-theme="dark"] .theme-toggle .fa-sun {
+[data-theme="dark"] .theme-toggle__icon::after {
     opacity: 1;
-    transform: scale(1) rotate(0deg);
-    color: #fff;
+    transform: scale(1) rotate(0);
+    content: '☀️';
 }
 
 /* Hover effects */
-.theme-toggle:hover {
-    background: rgba(0, 0, 0, 0.05);
+.theme-toggle:hover .theme-toggle__icon {
+    transform: rotate(15deg);
 }
 
-[data-theme="dark"] .theme-toggle:hover {
-    background: rgba(255, 255, 255, 0.1);
+[data-theme="dark"] .theme-toggle:hover .theme-toggle__icon {
+    transform: rotate(-15deg);
 }
 
 /* Focus state */
@@ -933,8 +980,30 @@ body.dark-mode .wheel {
 }
 
 /* Active state */
-.theme-toggle:active {
+.theme-toggle:active .theme-toggle__icon {
     transform: scale(0.9);
+}
+
+/* Ripple effect */
+.theme-toggle::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    opacity: 0;
+    transition: transform 0.5s, opacity 1s;
+    pointer-events: none;
+}
+
+.theme-toggle:active::after {
+    opacity: 0.3;
+    transform: scale(0);
+    transition: 0s;
 }
 
 /* Navbar */
