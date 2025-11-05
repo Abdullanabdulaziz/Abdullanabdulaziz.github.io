@@ -417,13 +417,17 @@
 
     <!-- Interactive Background -->
     <div id="interactive-bg" class="interactive-bg">
-        <canvas id="threejs-bg"></canvas>
-        <div class="gradient-overlay"></div>
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
+        <canvas id="threejs-bg" style="display: block;"></canvas>
+    </div>
+    
+    <!-- Gradient Overlay -->
+    <div class="gradient-overlay"></div>
+    
+    <!-- Floating Shapes -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
     </div>
 
     <!-- Scripts -->
@@ -433,8 +437,8 @@
     <script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.min.js"></script>
     <script src="https://unpkg.com/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
     <script>
-        // Simple Particle System
-        document.addEventListener('DOMContentLoaded', function() {
+        // Wait for the window to fully load
+        window.addEventListener('load', function() {
             // Check if Three.js is loaded
             if (typeof THREE === 'undefined') {
                 console.error('Three.js not loaded');
@@ -450,38 +454,45 @@
 
             // Set canvas size
             function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+                
+                if (renderer && camera) {
+                    camera.aspect = width / height;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(width, height);
+                }
             }
-            window.addEventListener('resize', resizeCanvas);
-            resizeCanvas();
 
             // Scene setup
             const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 0.1, 1000);
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer({
                 canvas: canvas,
                 alpha: true,
                 antialias: true
             });
-            renderer.setSize(canvas.width, canvas.height);
+            
+            renderer.setClearColor(0x000000, 0); // Transparent background
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            resizeCanvas();
 
             // Particles
+            const particleCount = 1000;
             const particlesGeometry = new THREE.BufferGeometry();
-            const particleCount = 1500;
-            
             const posArray = new Float32Array(particleCount * 3);
             
             for (let i = 0; i < particleCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 10;
+                posArray[i] = (Math.random() - 0.5) * 20; // More spread out particles
             }
             
             particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
             
-            // Material
+            // Material with more visible particles
             const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.01,
+                size: 0.05,
                 color: 0x8b5cf6,
                 transparent: true,
                 opacity: 0.8,
@@ -489,36 +500,45 @@
                 sizeAttenuation: true
             });
             
-            // Points
+            // Create particles
             const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
             scene.add(particlesMesh);
             
             // Camera position
             camera.position.z = 5;
             
-            // Mouse position
+            // Mouse movement variables
             let mouseX = 0;
             let mouseY = 0;
+            let targetX = 0;
+            let targetY = 0;
             
-            // Mouse move event
+            // Smooth mouse movement
             document.addEventListener('mousemove', (event) => {
-                mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-                mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+                targetX = (event.clientX / window.innerWidth) * 2 - 1;
+                targetY = -(event.clientY / window.innerHeight) * 2 + 1;
             });
             
             // Animation loop
             function animate() {
                 requestAnimationFrame(animate);
                 
+                // Smooth mouse movement
+                mouseX += (targetX - mouseX) * 0.05;
+                mouseY += (targetY - mouseY) * 0.05;
+                
                 // Animate particles
                 particlesMesh.rotation.y += 0.0005;
                 
-                // Mouse movement effect
-                particlesMesh.rotation.x = mouseY * 0.2;
-                particlesMesh.rotation.y = mouseX * 0.2;
+                // Apply mouse movement effect
+                particlesMesh.rotation.x = mouseY * 0.5;
+                particlesMesh.rotation.y = mouseX * 0.5;
                 
                 renderer.render(scene, camera);
             }
+            
+            // Handle window resize
+            window.addEventListener('resize', resizeCanvas);
             
             // Start animation
             animate();
