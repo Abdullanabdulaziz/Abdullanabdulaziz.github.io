@@ -72,8 +72,14 @@
     --color-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     
     /* Apply dark theme to the entire page */
-    background-color: var(--color-bg);
+    background-color: var(--color-bg) !important;
     color: var(--color-text);
+}
+
+/* Ensure the body and html elements have dark background */
+[data-theme="dark"] body,
+[data-theme="dark"] html {
+    background-color: var(--color-bg) !important;
 }
 
 [data-theme="dark"] .gradient-overlay {
@@ -82,15 +88,33 @@
 
 /* About page specific dark mode styles */
 [data-theme="dark"] #about {
-    background-color: var(--color-bg);
+    background-color: var(--color-bg) !important;
     color: var(--color-text);
 }
 
 [data-theme="dark"] .about-content,
 [data-theme="dark"] .about-text,
 [data-theme="dark"] .section-header h2,
-[data-theme="dark"] .section-subtitle {
-    color: var(--color-text);
+[data-theme="dark"] .section-subtitle,
+[data-theme="dark"] .about-details .detail-label,
+[data-theme="dark"] .about-details .detail-value,
+[data-theme="dark"] .about-details a {
+    color: var(--color-text) !important;
+}
+
+[data-theme="dark"] .about-details {
+    border-top: 1px solid var(--color-border);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+[data-theme="dark"] .about-details .detail-item {
+    border-bottom: 1px solid var(--color-border);
+    padding: 10px 0;
+}
+
+[data-theme="dark"] .about-details a:hover {
+    color: var(--color-primary) !important;
 }
 
 [data-theme="dark"] .about-card {
