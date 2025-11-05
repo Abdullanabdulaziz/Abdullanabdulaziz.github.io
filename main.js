@@ -67,13 +67,33 @@ if (overlay) {
 }
 
 // Splash Screen
-window.addEventListener('load', () => {
-  setTimeout(() => {
+function hideSplashScreen() {
+  if (splashScreen) {
+    splashScreen.style.transition = 'opacity 0.5s ease, visibility 0.5s';
     splashScreen.style.opacity = '0';
     splashScreen.style.visibility = 'hidden';
     document.body.style.overflow = 'auto';
-  }, 1500);
-});
+    
+    // Remove splash screen from DOM after animation completes
+    setTimeout(() => {
+      if (splashScreen && splashScreen.parentNode) {
+        splashScreen.parentNode.removeChild(splashScreen);
+      }
+    }, 500);
+  }
+}
+
+// Hide splash screen when everything is loaded
+if (document.readyState === 'complete') {
+  setTimeout(hideSplashScreen, 1000);
+} else {
+  window.addEventListener('load', () => {
+    setTimeout(hideSplashScreen, 1000);
+  });
+}
+
+// Fallback in case the load event doesn't fire
+setTimeout(hideSplashScreen, 3000);
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
