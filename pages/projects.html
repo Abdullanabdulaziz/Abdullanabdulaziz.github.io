@@ -30,6 +30,7 @@
     <meta name="color-scheme" content="dark light">
     
     <!-- Particles.js -->
+    <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         // Initialize particles.js
@@ -38,52 +39,52 @@
                 particlesJS('particles-js', {
                     particles: {
                         number: {
-                            value: 80,
+                            value: 120,
                             density: {
                                 enable: true,
-                                value_area: 800
+                                value_area: 1000
                             }
                         },
                         color: {
-                            value: ['#6366f1', '#8b5cf6', '#ec4899', '#f43f5e', '#f59e0b']
+                            value: ['#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#3b82f6']
                         },
                         shape: {
-                            type: 'circle',
+                            type: ['circle', 'triangle', 'star'],
                             stroke: {
                                 width: 0,
                                 color: '#000000'
                             }
                         },
                         opacity: {
-                            value: 0.5,
+                            value: 0.7,
                             random: true,
                             anim: {
                                 enable: true,
-                                speed: 1,
-                                opacity_min: 0.1,
+                                speed: 1.5,
+                                opacity_min: 0.2,
                                 sync: false
                             }
                         },
                         size: {
-                            value: 3,
+                            value: 4,
                             random: true,
                             anim: {
                                 enable: true,
-                                speed: 2,
-                                size_min: 0.1,
+                                speed: 3,
+                                size_min: 0.5,
                                 sync: false
                             }
                         },
                         line_linked: {
                             enable: true,
-                            distance: 150,
+                            distance: 200,
                             color: '#8b5cf6',
-                            opacity: 0.4,
-                            width: 1
+                            opacity: 0.6,
+                            width: 1.5
                         },
                         move: {
                             enable: true,
-                            speed: 2,
+                            speed: 2.5,
                             direction: 'none',
                             random: true,
                             straight: false,
@@ -91,13 +92,13 @@
                             bounce: false,
                             attract: {
                                 enable: true,
-                                rotateX: 600,
-                                rotateY: 1200
+                                rotateX: 800,
+                                rotateY: 1600
                             }
                         }
                     },
                     interactivity: {
-                        detect_on: 'window',
+                        detect_on: 'canvas',
                         events: {
                             onhover: {
                                 enable: true,
@@ -111,17 +112,25 @@
                         },
                         modes: {
                             grab: {
-                                distance: 140,
+                                distance: 180,
                                 line_linked: {
-                                    opacity: 0.8
+                                    opacity: 1
                                 }
                             },
                             push: {
-                                particles_nb: 4
+                                particles_nb: 6
                             }
                         }
                     },
-                    retina_detect: true
+                    retina_detect: true,
+                    config_demo: {
+                        hide_card: false,
+                        background_color: '#0f172a',
+                        background_image: '',
+                        background_position: '50% 50%',
+                        background_repeat: 'no-repeat',
+                        background_size: 'cover'
+                    }
                 });
             }
 
@@ -159,10 +168,13 @@
 
     <!-- Animated Background with Gradient -->
     <div class="animated-bg">
-        <div class="particles-container">
-            <div id="particles-js"></div>
-        </div>
+        <div id="particles-js"></div>
         <div class="gradient-overlay"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
     </div>
 
     <!-- Header -->
