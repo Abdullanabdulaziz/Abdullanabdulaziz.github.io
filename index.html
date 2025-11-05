@@ -1,58 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" class="has-scroll-init has-scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdulla Nabil - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="description" content="Portfolio of Abdulla Nabil, a Computer Engineer specializing in innovative and impactful software solutions.">
-    <meta name="keywords" content="Portfolio, Abdulla Nabil, Software Developer, Projects, WordPress Plugin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Abdulla Nabil | Software Engineer</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Abdulla Nabil is a Software Engineer with expertise in web development, automation, and plugin architecture.">
+    <meta name="keywords" content="Software Engineer, Web Developer, WordPress, React, Python, PHP, Automation">
     <meta name="author" content="Abdulla Nabil">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="dark light">
 </head>
-<body>
-    <!-- Particles.js Background -->
-    <div id="particles-js"></div>
-
-    <!-- Dark Mode Toggle -->
-    <div class="dark-mode-toggle">
-        <button id="dark-mode-switch" class="btn btn-secondary">🌙 Dark Mode</button>
+<body class="light">
+    <!-- Splash Screen -->
+    <div class="splashscreen">
+        <div class="splashscreen-content">
+            <!-- Add your loading animation here -->
+            <div class="loading-animation"></div>
+            <p class="loading-text">Loading...</p>
+        </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Abdulla Nabil</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link smooth-scroll" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link smooth-scroll" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
-                </ul>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="left-part">
+                <div class="logo">
+                    <a href="#" class="logo-link">
+                        <span class="visually-hidden">Home</span>
+                        <span class="logo-text">AN</span>
+                    </a>
+                </div>
+                <h5 class="full-identity">
+                    <span class="fullname">abdulla nabil</span>
+                </h5>
             </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container text-center">
-            <h1 class="animate__animated animate__fadeIn">Building the Future Through Code</h1>
-            <p class="animate__animated animate__fadeIn animate__delay-1s">Hi, I'm Abdulla Nabil, a Computer Engineer passionate about creating innovative and impactful software solutions.</p>
-            <div class="cta-buttons animate__animated animate__fadeIn animate__delay-2s">
-                <a href="https://github.com/Abdullanabdulaziz" target="_blank" class="btn btn-primary btn-lg">GitHub</a>
-                <a href="https://www.linkedin.com/in/abdulla-abdulaziz-65321b2bb/" target="_blank" class="btn btn-secondary btn-lg">LinkedIn</a>
+            
+            <div class="right-part">
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Work</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="theme-switch">
+                        <button class="theme-toggle" aria-label="Toggle theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+                
+                <button class="hamburger-btn" aria-label="Menu">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- Hero Section -->
+    <main class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="intro-wrapper">
+                    <div class="intro-text">
+                        <h1 class="intro-heading">
+                            <span class="intro-line">Hey, I'm </span>
+                            <span class="name-wrapper">
+                                <span class="name">Abdulla Nabil</span>
+                                <span class="wave">👋</span>
+                            </span>
+                        </h1>
+                        
+                        <div class="intro-roles">
+                            <p class="role">I'm a <span class="highlight">Software Engineer</span> with a passion for</p>
+                            <div class="typing-text">
+                                <span class="typed-text">Web Development</span>
+                                <span class="cursor">&nbsp;</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-cta">
+                            <a href="#projects" class="btn btn-primary">View My Work</a>
+                            <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <!-- Add your hero image or illustration here -->
+                    <div class="hero-image"></div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <span>Scroll Down</span>
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     <!-- About Section -->
     <section id="about" class="py-5">
