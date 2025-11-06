@@ -7,23 +7,10 @@ const navMenu = document.querySelector('.nav-menu');
 const splashScreen = document.querySelector('.splashscreen');
 const navLinks = document.querySelectorAll('.nav-link');
 
-// Initialize theme when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  // Check for saved theme preference or use system preference
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
-  
-  // Set the theme
-  setTheme(savedTheme);
-  
-  // Initialize splash screen
-  initSplashScreen();
-  
-  // Initialize particles if needed
-  if (document.getElementById('particles-js')) {
-    initParticles(savedTheme === 'dark');
-  }
-});
+// Check for saved theme preference or use system preference
+const savedTheme = localStorage.getItem('theme') || 
+                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+setTheme(savedTheme);
 
 // Theme Toggle
 if (themeToggle) {
@@ -36,55 +23,26 @@ if (themeToggle) {
 
 // Set theme function
 function setTheme(theme) {
-  console.log('Setting theme to:', theme);
-  const isDarkMode = theme === 'dark';
-  const html = document.documentElement;
-  
-  // Set theme on html element
-  html.setAttribute('data-theme', theme);
-  
-  // Set theme on body
-  if (isDarkMode) {
+  if (theme === 'dark') {
     body.classList.add('dark-mode');
-    // Update theme color meta tag
-    const themeColor = document.querySelector('meta[name="theme-color"]');
-    if (themeColor) {
-      themeColor.setAttribute('content', '#0f172a');
-    }
-    
+    document.documentElement.setAttribute('data-theme', 'dark');
     // Update all theme toggles on the page
     document.querySelectorAll('.theme-toggle').forEach(toggle => {
       toggle.innerHTML = `
         <i class="fas fa-sun theme-icon"></i>
-        <i class="fas fa-moon theme-icon" style="display: none;">
+        <i class="fas fa-moon theme-icon" style="display: none;"></i>
       `;
     });
   } else {
     body.classList.remove('dark-mode');
-    // Update theme color meta tag
-    const themeColor = document.querySelector('meta[name="theme-color"]');
-    if (themeColor) {
-      themeColor.setAttribute('content', '#f3f2f9');
-    }
-    
+    document.documentElement.setAttribute('data-theme', 'light');
     // Update all theme toggles on the page
     document.querySelectorAll('.theme-toggle').forEach(toggle => {
       toggle.innerHTML = `
-        <i class="fas fa-sun theme-icon" style="display: none;">
-        <i class="fas fa-moon theme-icon">
+        <i class="fas fa-sun theme-icon" style="display: none;"></i>
+        <i class="fas fa-moon theme-icon"></i>
       `;
     });
-  }
-  
-  // Force repaint to ensure styles are applied
-  document.body.offsetHeight;
-  
-  // Reinitialize particles with the correct theme if the container exists
-  if (document.getElementById('particles-js')) {
-    // Use setTimeout to ensure the theme is fully applied before reinitializing particles
-    setTimeout(() => {
-      initParticles(isDarkMode);
-    }, 50);
   }
 }
 
@@ -186,15 +144,7 @@ function initSplashScreen() {
 }
 
 // Initialize splash screen
-document.addEventListener('DOMContentLoaded', () => {
-  initSplashScreen();
-  
-  // Initialize particles with current theme
-  const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-  if (document.getElementById('particles-js')) {
-    initParticles(isDarkMode);
-  }
-});
+document.addEventListener('DOMContentLoaded', initSplashScreen);
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -298,26 +248,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Initialize particles.js if available
-const initParticles = (isDarkMode = false) => {
-  if (typeof particlesJS === 'undefined') return;
-  
-  // Initialize pJSDom if it doesn't exist
-  if (typeof window.pJSDom === 'undefined') {
-    window.pJSDom = [];
-  }
-  
-  // Remove existing particles if any
-  const particlesContainer = document.getElementById('particles-js');
-  if (!particlesContainer) return;
-  
-  // Clear existing canvas elements
-  const existingCanvases = particlesContainer.getElementsByTagName('canvas');
-  while (existingCanvases[0]) {
-    existingCanvases[0].remove();
-  }
-  
-  // Initialize new particles
-  window.pJSDom = [];
+if (typeof particlesJS !== 'undefined') {
   particlesJS('particles-js', {
     particles: {
       number: {
@@ -328,7 +259,7 @@ const initParticles = (isDarkMode = false) => {
         }
       },
       color: {
-        value: isDarkMode ? '#818cf8' : '#6d28d9'
+        value: '#2563eb'
       },
       shape: {
         type: 'circle',
