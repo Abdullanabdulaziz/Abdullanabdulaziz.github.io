@@ -61,8 +61,18 @@
     left: 0;
     z-index: -1;
     pointer-events: none;
-    background: var(--bg-color);
-    opacity: 0.8;
+    background: transparent;
+}
+
+/* Three.js canvas */
+#threejs-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
 }
 
 /* Floating Shapes */
@@ -464,7 +474,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2;
+  z-index: -3; /* Behind everything */
   background: var(--bg-color);
   transition: background 0.3s ease;
 }
@@ -1675,7 +1685,18 @@ body > *:not(#particles-js) {
 }
 
 /* Ensure all sections have proper stacking */
-section, header, footer {
+section, header, footer, .container {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
+/* Ensure content is above all backgrounds */
+.projects-section,
+.hero-section,
+.about-section,
+.skills-section,
+.contact-section {
     position: relative;
     z-index: 1;
     background: transparent;
