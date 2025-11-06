@@ -38,16 +38,16 @@
     <meta property="og:image" content="https://abdullanabdulaziz.github.io/og-image.jpg">
     
     <!-- Particles.js -->
+    <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Initialize everything when DOM is loaded
+        // Initialize particles.js
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize particles.js
             if (typeof particlesJS !== 'undefined') {
                 particlesJS('particles-js', {
                     particles: {
                         number: {
-                            value: 80,
+                            value: 120,
                             density: {
                                 enable: true,
                                 value_area: 1000
@@ -240,13 +240,16 @@
         </div>
     </header>
 
-    <!-- Background Elements -->
-    <div id="particles-js" class="particles-bg"></div>
-    <div class="gradient-overlay"></div>
-    
     <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <div class="container position-relative" style="z-index: 10;">
+    <section id="projects" class="projects-section py-5 position-relative min-vh-100 d-flex align-items-center">
+        <!-- Three.js Canvas -->
+        <canvas id="threejs-bg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
+        
+        <!-- Gradient Overlay -->
+        <div class="gradient-overlay"></div>
+        
+        <!-- Content -->
+        <div class="container-fluid px-4 px-lg-5">
             <div class="row justify-content-center">
                 <div class="col-12 text-center mb-5">
                     <span class="section-tag">Portfolio</span>
@@ -259,6 +262,8 @@
                     <p class="section-subtitle mt-3">Explore my latest work and creative projects</p>
                 </div>
             </div>
+        
+        <div class="container position-relative">
             <div class="row g-4 justify-content-center">
                 <!-- Project 1 -->
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
@@ -413,9 +418,9 @@
                                 <span class="tag">TailwindCSS</span>
                             </div>
                         </div>
-                        </div>
                     </div>
                 </div>
+            </div>
         </div>
     </section>
 
