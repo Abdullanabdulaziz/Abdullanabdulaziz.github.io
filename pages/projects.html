@@ -38,16 +38,16 @@
     <meta property="og:image" content="https://abdullanabdulaziz.github.io/og-image.jpg">
     
     <!-- Particles.js -->
-    <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Initialize particles.js
+        // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize particles.js
             if (typeof particlesJS !== 'undefined') {
                 particlesJS('particles-js', {
                     particles: {
                         number: {
-                            value: 120,
+                            value: 80,
                             density: {
                                 enable: true,
                                 value_area: 1000
@@ -240,29 +240,25 @@
         </div>
     </header>
 
+    <!-- Background Elements -->
+    <div id="particles-js" class="particles-bg"></div>
+    <div class="gradient-overlay"></div>
+    
     <!-- Projects Section -->
-    <div class="page-wrapper">
-        <!-- Background Elements -->
-        <canvas id="threejs-bg" class="particles-bg"></canvas>
-        <div class="gradient-overlay"></div>
-        
-        <!-- Content -->
-        <section id="projects" class="projects-section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 text-center mb-5">
-                        <span class="section-tag">Portfolio</span>
-                        <h2 class="display-4 fw-bold mb-3">My <span class="gradient-text">Projects</span></h2>
-                        <div class="header-divider">
-                            <span></span>
-                            <i class="fas fa-code"></i>
-                            <span></span>
+    <section id="projects" class="projects-section">
+        <div class="container position-relative" style="z-index: 10;">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center mb-5">
+                    <span class="section-tag">Portfolio</span>
+                    <h2 class="display-4 fw-bold mb-3">My <span class="gradient-text">Projects</span></h2>
+                    <div class="header-divider">
+                        <span></span>
+                        <i class="fas fa-code"></i>
+                        <span></span>
                     </div>
                     <p class="section-subtitle mt-3">Explore my latest work and creative projects</p>
                 </div>
             </div>
-        
-        <div class="container position-relative">
             <div class="row g-4 justify-content-center">
                 <!-- Project 1 -->
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3">
@@ -420,9 +416,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div> <!-- End of page-wrapper -->
+        </div>
+    </section>
 
 
     <!-- Scripts -->
