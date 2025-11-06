@@ -339,12 +339,14 @@
 }
 
 .section-subtitle {
-    color: var(--text-color);
+    color: var(--color-text-light);
     font-size: 1.1rem;
     max-width: 700px;
     margin: 0 auto;
-    opacity: 0.9;
-    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+[data-theme="dark"] .section-subtitle {
+    color: var(--color-dark-text-light);
 }
 
 /* Responsive Adjustments */
