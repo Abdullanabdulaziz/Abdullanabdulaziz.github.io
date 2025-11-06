@@ -61,7 +61,7 @@
     </div>
 
     <!-- Particles Background -->
-    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+    <div id="particles-js"></div>
 
     <!-- Header -->
     <header class="header">
@@ -170,102 +170,55 @@
     <script src="../main.js"></script>
     
     <script>
-        // Wait for the DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if particles container exists
-            const particlesContainer = document.getElementById('particles-js');
-            if (particlesContainer) {
-                // Make sure the container is visible and has dimensions
-                particlesContainer.style.display = 'block';
-                
-                // Initialize particles with a small delay to ensure everything is ready
-                setTimeout(function() {
-                    particlesJS('particles-js', {
-                        particles: {
-                            number: { 
-                                value: 80, 
-                                density: { 
-                                    enable: true, 
-                                    value_area: 800 
-                                } 
-                            },
-                            color: { 
-                                value: '#606887' 
-                            },
-                            shape: { 
-                                type: 'circle' 
-                            },
-                            opacity: {
-                                value: 0.5,
-                                random: true,
-                                anim: { 
-                                    enable: true, 
-                                    speed: 1, 
-                                    opacity_min: 0.1, 
-                                    sync: false 
-                                }
-                            },
-                            size: {
-                                value: 3,
-                                random: true,
-                                anim: { 
-                                    enable: true, 
-                                    speed: 2, 
-                                    size_min: 0.1, 
-                                    sync: false 
-                                }
-                            },
-                            line_linked: {
-                                enable: true,
-                                distance: 150,
-                                color: '#606887',
-                                opacity: 0.4,
-                                width: 1
-                            },
-                            move: {
-                                enable: true,
-                                speed: 1,
-                                direction: 'none',
-                                random: true,
-                                straight: false,
-                                out_mode: 'out',
-                                bounce: false
-                            }
-                        },
-                        interactivity: {
-                            detect_on: 'window',
-                            events: {
-                                onhover: { 
-                                    enable: true, 
-                                    mode: 'grab' 
-                                },
-                                onclick: { 
-                                    enable: true, 
-                                    mode: 'push' 
-                                },
-                                resize: true
-                            },
-                            modes: {
-                                grab: { 
-                                    distance: 140, 
-                                    line_linked: { 
-                                        opacity: 0.7 
-                                    } 
-                                },
-                                push: { 
-                                    particles_nb: 4 
-                                }
-                            }
-                        },
-                        retina_detect: true
-                    });
-                    
-                    console.log('Particles.js initialized successfully');
-                }, 100);
-            } else {
-                console.error('Particles container not found');
-            }
-        });
+        // Initialize particles.js
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: '#606887' },
+                    shape: { type: 'circle' },
+                    opacity: {
+                        value: 0.5,
+                        random: true,
+                        anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+                    },
+                    size: {
+                        value: 3,
+                        random: true,
+                        anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#606887',
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 1,
+                        direction: 'none',
+                        random: true,
+                        straight: false,
+                        out_mode: 'out',
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: true, mode: 'grab' },
+                        onclick: { enable: true, mode: 'push' },
+                        resize: true
+                    },
+                    modes: {
+                        grab: { distance: 140, line_linked: { opacity: 0.7 } },
+                        push: { particles_nb: 4 }
+                    }
+                },
+                retina_detect: true
+            });
+        }
     </script>
 </body>
 </html>
