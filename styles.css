@@ -882,48 +882,41 @@ body.dark-mode .wheel {
 
 [data-theme="dark"] {
   --bg-color: #121212;
-  --text-color: #ffffff;
+  --text-color: #f0f0f0;
   --header-bg: rgba(18, 18, 18, 0.9);
   --card-bg: rgba(40, 40, 40, 0.8);
   --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   --theme-toggle-bg: rgba(255, 255, 255, 0.1);
   --theme-toggle-hover: rgba(255, 255, 255, 0.2);
-  --link-color: #64b5f6;
-  --link-hover: #90caf9;
+  --link-color: #5dade2;
+  --link-hover: #85c1e9;
   
-  /* Override any specific dark mode styles that might be causing issues */
-  background-color: var(--bg-color) !important;
-  color: var(--text-color) !important;
-}
-
-[data-theme="dark"] .section,
-[data-theme="dark"] .card,
-[data-theme="dark"] .container,
-[data-theme="dark"] .hero-content,
-[data-theme="dark"] .intro-wrapper,
-[data-theme="dark"] .intro-text,
-[data-theme="dark"] .intro-heading,
-[data-theme="dark"] .intro-role,
-[data-theme="dark"] .typing-text,
-[data-theme="dark"] .intro-links {
-  background-color: transparent !important;
-  color: inherit !important;
-  box-shadow: none !important;
-}
-
-[data-theme="dark"] .card {
-  background-color: var(--card-bg) !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="dark"] .btn-outline {
-  border-color: var(--text-color);
+  /* Make sure particles background is dark in dark mode */
+  background-color: var(--bg-color);
   color: var(--text-color);
 }
 
-[data-theme="dark"] .btn-outline:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+/* Ensure all text is visible in dark mode */
+[data-theme="dark"] body,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] div,
+[data-theme="dark"] a,
+[data-theme="dark"] li,
+[data-theme="dark"] td,
+[data-theme="dark"] th,
+[data-theme="dark"] label,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select,
+[data-theme="dark"] button {
+  color: var(--text-color) !important;
 }
 
 /* Base styles that use theme variables */
@@ -931,31 +924,12 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
-  min-height: 100vh;
 }
 
 /* Apply theme to all text elements */
 body, h1, h2, h3, h4, h5, h6, p, span, div, a, li, td, th, label, input, textarea, select, button {
   color: var(--text-color);
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-/* Ensure all sections inherit the background color */
-section, .section, .container, .hero, .hero-content, .intro-wrapper, .intro-text {
-  background-color: transparent;
-  color: inherit;
-}
-
-/* Style for cards */
-.card {
-  background-color: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="dark"] .card {
-  border-color: rgba(255, 255, 255, 0.1);
+  transition: color 0.3s ease;
 }
 
 /* Links */
@@ -969,10 +943,22 @@ a:hover {
 }
 
 /* Cards and containers */
-.card, .section, .container, .modal-content, .dropdown-menu {
+.card, .section, .modal-content, .dropdown-menu {
   background-color: var(--card-bg);
   box-shadow: var(--card-shadow);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Main container should be transparent to show the background */
+.container {
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0 15px;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 /* Form elements */
@@ -1696,6 +1682,21 @@ th, td {
 }
 
 /* Particles Background */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.3;
+  transition: opacity 0.5s ease;
+}
+
+[data-theme="dark"] #particles-js {
+  opacity: 0.2;
+}
+
 .particles-container {
     position: absolute;
     top: 0;
