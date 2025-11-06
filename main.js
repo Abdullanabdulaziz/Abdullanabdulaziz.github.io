@@ -68,25 +68,13 @@ function setTheme(theme) {
     themeColorMeta.setAttribute('content', themeColor);
   }
   
-  // Update all theme toggles (both old and new structure)
+  // Update all theme toggles
   document.querySelectorAll('.theme-toggle').forEach(toggle => {
-    // For the new structure with theme-toggle__icon wrapper
-    const iconWrapper = toggle.querySelector('.theme-toggle__icon');
-    if (iconWrapper) {
-      const moonIcon = iconWrapper.querySelector('.fa-moon');
-      const sunIcon = iconWrapper.querySelector('.fa-sun');
-      
-      if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'inline-block';
-      if (sunIcon) sunIcon.style.display = isDark ? 'inline-block' : 'none';
-    } 
-    // For the old structure with direct icons
-    else {
-      const moonIcon = toggle.querySelector('.fa-moon');
-      const sunIcon = toggle.querySelector('.fa-sun');
-      
-      if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'inline-block';
-      if (sunIcon) sunIcon.style.display = isDark ? 'inline-block' : 'none';
-    }
+    const moonIcon = toggle.querySelector('.fa-moon');
+    const sunIcon = toggle.querySelector('.fa-sun');
+    
+    if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'inline-block';
+    if (sunIcon) sunIcon.style.display = isDark ? 'inline-block' : 'none';
   });
   
   // Save to localStorage
