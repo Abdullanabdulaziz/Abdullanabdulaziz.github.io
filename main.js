@@ -21,6 +21,31 @@ if (themeToggle) {
   });
 }
 
+// Apply theme colors to all elements
+function applyThemeColors() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const themeColor = isDark ? '#1a1a1a' : '#f3f2f9';
+  
+  // Update theme color meta tag
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute('content', themeColor);
+  }
+  
+  // Apply theme to all elements with data-theme-apply attribute
+  document.querySelectorAll('[data-theme-apply]').forEach(el => {
+    const themeType = el.getAttribute('data-theme-apply');
+    if (themeType === 'background') {
+      el.style.backgroundColor = isDark ? 'var(--bg-color)' : '';
+    } else if (themeType === 'text') {
+      el.style.color = isDark ? 'var(--text-color)' : '';
+    } else if (themeType === 'card') {
+      el.style.backgroundColor = isDark ? 'var(--card-bg)' : '';
+      el.style.boxShadow = isDark ? 'var(--card-shadow)' : '';
+    }
+  });
+}
+
 // Set theme function
 function setTheme(theme) {
   const html = document.documentElement;
@@ -36,12 +61,8 @@ function setTheme(theme) {
     document.body.classList.remove('dark-mode');
   }
   
-  // Update theme color meta tag
-  const themeColor = isDark ? '#1a1a1a' : '#f3f2f9';
-  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-  if (themeColorMeta) {
-    themeColorMeta.setAttribute('content', themeColor);
-  }
+  // Apply theme colors to all elements
+  applyThemeColors();
   
   // Update all theme toggles
   document.querySelectorAll('.theme-toggle').forEach(toggle => {
