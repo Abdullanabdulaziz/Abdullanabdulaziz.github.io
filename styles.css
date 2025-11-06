@@ -866,29 +866,102 @@ body.dark-mode .wheel {
    THEME TOGGLE STYLES
    ================== */
 
+/* Theme Variables */
+:root {
+  /* Light theme (default) */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --theme-toggle-bg: rgba(0, 0, 0, 0.05);
+  --theme-toggle-hover: rgba(0, 0, 0, 0.1);
+  --link-color: #3498db;
+  --link-hover: #2980b9;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --header-bg: rgba(26, 26, 26, 0.9);
+  --card-bg: #2d2d2d;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --theme-toggle-bg: rgba(255, 255, 255, 0.1);
+  --theme-toggle-hover: rgba(255, 255, 255, 0.2);
+  --link-color: #5dade2;
+  --link-hover: #85c1e9;
+}
+
+/* Base styles that use theme variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: var(--link-color);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
 /* Theme Toggle */
 .theme-toggle {
-    --toggle-size: 40px;
-    --icon-size: 20px;
-    --animation-duration: 0.3s;
-    
-    position: relative;
-    width: var(--toggle-size);
-    height: var(--toggle-size);
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-    border-radius: 50%;
-    -webkit-tap-highlight-color: transparent;
-    overflow: visible;
-    z-index: 1001;
-    color: #333; /* Default dark color for light mode */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--icon-size);
+  --toggle-size: 40px;
+  --icon-size: 1.2rem;
+  
+  position: relative;
+  width: var(--toggle-size);
+  height: var(--toggle-size);
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: var(--theme-toggle-bg);
+  color: var(--text-color);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 1001;
+}
+
+.theme-toggle:hover {
+  background: var(--theme-toggle-hover);
+  transform: scale(1.1);
+}
+
+.theme-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
+}
+
+.theme-toggle .theme-icon {
+  font-size: var(--icon-size);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Ensure proper icon visibility */
+.theme-toggle .fa-moon {
+  display: inline-block;
+}
+
+.theme-toggle .fa-sun {
+  display: none;
+  position: absolute;
+}
+
+[data-theme="dark"] .theme-toggle .fa-moon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .fa-sun {
+  display: inline-block;
 }
 
 [data-theme="dark"] .theme-toggle {
