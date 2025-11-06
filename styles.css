@@ -59,9 +59,10 @@
     height: 100%;
     top: 0;
     left: 0;
-    z-index: -1; /* Changed from 0 to -1 to ensure it stays behind all content */
+    z-index: -1;
     pointer-events: none;
     background: var(--bg-color);
+    opacity: 0.8;
 }
 
 /* Floating Shapes */
@@ -444,9 +445,9 @@ body {
   font-family: var(--font-sans);
   line-height: 1.7;
   color: var(--color-text);
-  background-color: transparent;
+  background-color: var(--bg-color);
   position: relative;
-  z-index: 1;
+  z-index: 0;
   transition: color 0.3s ease, background-color 0.3s ease;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -455,7 +456,7 @@ body {
   position: relative;
 }
 
-/* Ensure the body has a background in case particles don't load */
+/* Fallback background in case particles don't load */
 body::before {
   content: '';
   position: fixed;
@@ -464,7 +465,7 @@ body::before {
   width: 100%;
   height: 100%;
   z-index: -2;
-  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  background: var(--bg-color);
   transition: background 0.3s ease;
 }
 
@@ -1667,11 +1668,17 @@ a.detail-value:hover {
 }
 
 /* Main content wrapper */
-.main-content {
+body > *:not(#particles-js) {
     position: relative;
     z-index: 1;
     background: transparent;
-    min-height: 100vh;
+}
+
+/* Ensure all sections have proper stacking */
+section, header, footer {
+    position: relative;
+    z-index: 1;
+    background: transparent;
 }
 
 /* Projects Section */
