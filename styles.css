@@ -19,6 +19,27 @@
     pointer-events: none;
 }
 
+/* Particles Container */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Light Theme */
+[data-theme="light"] #particles-js {
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+/* Dark Theme */
+[data-theme="dark"] #particles-js {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
 #threejs-bg {
     position: fixed;
     top: 0;
@@ -435,6 +456,8 @@ body {
   line-height: 1.7;
   color: var(--color-text);
   background-color: transparent;
+  position: relative;
+  z-index: 1;
   transition: color 0.3s ease, background-color 0.3s ease;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;

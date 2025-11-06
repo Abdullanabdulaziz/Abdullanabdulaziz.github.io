@@ -241,9 +241,12 @@
     </header>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects-section py-5 position-relative min-vh-100 d-flex align-items-center">
+    <!-- Particles Container -->
+    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></div>
+    
+    <section id="projects" class="projects-section py-5 position-relative min-vh-100 d-flex align-items-center" style="z-index: 1;">
         <!-- Three.js Canvas -->
-        <canvas id="threejs-bg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
+        <canvas id="threejs-bg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></canvas>
         
         <!-- Gradient Overlay -->
         <div class="gradient-overlay"></div>
