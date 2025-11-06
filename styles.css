@@ -14,7 +14,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -2; /* Behind content but above body background */
     overflow: hidden;
     pointer-events: none;
 }
@@ -26,7 +26,7 @@
     width: 100%;
     height: 100%;
     display: block;
-    z-index: -1;
+    z-index: -2; /* Same as parent */
     opacity: 0.6;
     transition: opacity 0.5s ease;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -44,8 +44,9 @@
     width: 100%;
     height: 100%;
     background: radial-gradient(circle at center, transparent 0%, var(--color-bg) 100%);
-    z-index: 0;
+    z-index: -1; /* Between particles and content */
     pointer-events: none;
+    opacity: 0.7;
 }
 
 [data-theme="dark"] .gradient-overlay {
@@ -441,39 +442,21 @@ body {
   position: relative;
 }
 
-/* Particles container */
-#particles-js {
+/* Ensure the body has a background in case particles don't load */
+body::before {
+  content: '';
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* Light theme background */
-[data-theme="light"] #particles-js {
+  z-index: -2;
   background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  transition: background 0.3s ease;
 }
 
-/* Dark theme background */
-[data-theme="dark"] #particles-js {
+[data-theme="dark"] body::before {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-}
-
-/* Ensure content is above particles */
-.container,
-.section,
-header,
-footer,
-#about,
-#skills,
-#projects,
-#contact {
-  position: relative;
-  z-index: 1;
-  background-color: transparent;
 }
 
 /* Dark Mode */
@@ -1315,6 +1298,29 @@ th, td {
 .navbar-toggler:focus {
     outline: none;
     box-shadow: none;
+}
+
+/* Main Content */
+main {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+/* Ensure all sections have proper stacking context */
+section {
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+}
+
+/* Fix for projects section */
+.projects-section {
+    z-index: 1;
+    background-color: transparent !important;
 }
 
 /* Hero Section */
