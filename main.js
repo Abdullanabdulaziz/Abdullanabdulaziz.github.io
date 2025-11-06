@@ -51,7 +51,7 @@ function setTheme(theme) {
   const html = document.documentElement;
   const isDark = theme === 'dark';
   
-  // Update data-theme attribute
+  // Update data-theme attribute on html element
   html.setAttribute('data-theme', theme);
   
   // Toggle dark-mode class on body
@@ -61,25 +61,39 @@ function setTheme(theme) {
     document.body.classList.remove('dark-mode');
   }
   
-  // Apply theme colors to all elements
-  applyThemeColors();
+  // Update theme color meta tag
+  const themeColor = isDark ? '#1a1a1a' : '#f3f2f9';
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute('content', themeColor);
+  }
   
-  // Update all theme toggles
+  // Update all theme toggles (both old and new structure)
   document.querySelectorAll('.theme-toggle').forEach(toggle => {
-    const moonIcon = toggle.querySelector('.fa-moon');
-    const sunIcon = toggle.querySelector('.fa-sun');
-    
-    if (isDark) {
-      if (moonIcon) moonIcon.style.display = 'none';
-      if (sunIcon) sunIcon.style.display = 'inline-block';
-    } else {
-      if (moonIcon) moonIcon.style.display = 'inline-block';
-      if (sunIcon) sunIcon.style.display = 'none';
+    // For the new structure with theme-toggle__icon wrapper
+    const iconWrapper = toggle.querySelector('.theme-toggle__icon');
+    if (iconWrapper) {
+      const moonIcon = iconWrapper.querySelector('.fa-moon');
+      const sunIcon = iconWrapper.querySelector('.fa-sun');
+      
+      if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'inline-block';
+      if (sunIcon) sunIcon.style.display = isDark ? 'inline-block' : 'none';
+    } 
+    // For the old structure with direct icons
+    else {
+      const moonIcon = toggle.querySelector('.fa-moon');
+      const sunIcon = toggle.querySelector('.fa-sun');
+      
+      if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'inline-block';
+      if (sunIcon) sunIcon.style.display = isDark ? 'inline-block' : 'none';
     }
   });
   
   // Save to localStorage
   localStorage.setItem('theme', theme);
+  
+  // Log for debugging
+  console.log('Theme set to:', theme);
 }
 
 // Initialize theme on page load
