@@ -1957,7 +1957,7 @@ footer {
     position: relative;
     margin-bottom: 60px;
     font-weight: 800;
-    color: #2c3e50;
+    color: var(--heading-color, #2c3e50);
 }
 
 #projects h2::after {
@@ -1973,7 +1973,7 @@ footer {
 }
 
 #projects .project-card {
-    background: #ffffff;
+    background: var(--card-bg, #ffffff);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     padding: 0;
     border-radius: 12px;
@@ -2022,14 +2022,14 @@ footer {
 }
 
 #projects .project-card h3 {
-    color: #2c3e50;
+    color: var(--heading-color, #2c3e50);
     font-weight: 700;
     margin-bottom: 10px;
     font-size: 1.5rem;
 }
 
 #projects .project-card p {
-    color: #7f8c8d;
+    color: var(--text-muted, #7f8c8d);
     margin-bottom: 20px;
     line-height: 1.6;
 }
