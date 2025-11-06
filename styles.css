@@ -441,21 +441,39 @@ body {
   position: relative;
 }
 
-/* Ensure the body has a background in case particles don't load */
-body::before {
-  content: '';
+/* Particles container */
+#particles-js {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2;
-  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-  transition: background 0.3s ease;
+  z-index: -1;
+  pointer-events: none;
 }
 
-[data-theme="dark"] body::before {
+/* Light theme background */
+[data-theme="light"] #particles-js {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+/* Dark theme background */
+[data-theme="dark"] #particles-js {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+/* Ensure content is above particles */
+.container,
+.section,
+header,
+footer,
+#about,
+#skills,
+#projects,
+#contact {
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
 }
 
 /* Dark Mode */
