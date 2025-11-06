@@ -59,8 +59,9 @@
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 0;
+    z-index: -1; /* Changed from 0 to -1 to ensure it stays behind all content */
     pointer-events: none;
+    background: var(--bg-color);
 }
 
 /* Floating Shapes */
@@ -444,6 +445,8 @@ body {
   line-height: 1.7;
   color: var(--color-text);
   background-color: transparent;
+  position: relative;
+  z-index: 1;
   transition: color 0.3s ease, background-color 0.3s ease;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -1663,10 +1666,18 @@ a.detail-value:hover {
     font-weight: bold;
 }
 
+/* Main content wrapper */
+.main-content {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    min-height: 100vh;
+}
+
 /* Projects Section */
 .projects-section {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     padding: 100px 0;
     background-color: transparent;
     min-height: 100vh;
