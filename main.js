@@ -12,106 +12,71 @@ const savedTheme = localStorage.getItem('theme') ||
                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 setTheme(savedTheme);
 
-// Theme Toggle - Use event delegation to handle dynamically added elements
-document.addEventListener('click', (e) => {
-  // Check if the clicked element is a theme toggle or a child of one
-  const themeToggle = e.target.closest('.theme-toggle');
-  if (themeToggle) {
-    e.preventDefault();
+// Theme Toggle
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
-  }
-});
+  });
+}
 
-// Set theme function - Enhanced with better error handling and logging
+// Set theme function
 function setTheme(theme) {
-  try {
-    const html = document.documentElement;
-    const isDark = theme === 'dark';
-    
-    // Log theme change for debugging
-    console.log(`Setting theme to: ${theme}`);
-    
-    // Update data-theme attribute on html element
-    html.setAttribute('data-theme', theme);
-    
-    // Toggle dark-mode class on body
-    document.body.classList.toggle('dark-mode', isDark);
-    
-    // Update theme color meta tag for mobile browsers
-    const themeColor = isDark ? '#1a1a1a' : '#f3f2f9';
-    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-    if (themeColorMeta) {
-      themeColorMeta.setAttribute('content', themeColor);
-    }
-    
-    // Update all theme toggles on the page
-    document.querySelectorAll('.theme-toggle').forEach(toggle => {
-      try {
-        const moonIcon = toggle.querySelector('.fa-moon');
-        const sunIcon = toggle.querySelector('.fa-sun');
-        
-        if (moonIcon) moonIcon.style.display = isDark ? 'none' : 'inline-block';
-        if (sunIcon) sunIcon.style.display = isDark ? 'inline-block' : 'none';
-        
-        // Ensure the toggle has the correct ARIA label
-        toggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
-      } catch (e) {
-        console.error('Error updating theme toggle:', e);
-      }
-    });
-    
-    // Save to localStorage
-    localStorage.setItem('theme', theme);
-    
-    // Dispatch a custom event in case other scripts need to react to theme changes
-    document.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
-    
-  } catch (error) {
-    console.error('Error in setTheme:', error);
+  const html = document.documentElement;
+  const isDark = theme === 'dark';
+  
+  // Update data-theme attribute
+  html.setAttribute('data-theme', theme);
+  
+  // Toggle dark-mode class on body
+  if (isDark) {
+    document.body.classList.add('dark-mode');
+  } else {
+    document.body.classList.remove('dark-mode');
   }
-}
-
-// Initialize theme on page load - Enhanced with better error handling
-function initializeTheme() {
-  try {
-    // Get saved theme or use system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+  
+  // Update theme color meta tag
+  const themeColor = isDark ? '#1a1a1a' : '#f3f2f9';
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute('content', themeColor);
+  }
+  
+  // Update all theme toggles
+  document.querySelectorAll('.theme-toggle').forEach(toggle => {
+    const moonIcon = toggle.querySelector('.fa-moon');
+    const sunIcon = toggle.querySelector('.fa-sun');
     
-    // Apply the theme
-    setTheme(theme);
-    
-    // Watch for system theme changes (only if user hasn't set a preference)
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleSystemThemeChange = (e) => {
-      if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    };
-    
-    // Add event listener for system theme changes
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener('change', handleSystemThemeChange);
+    if (isDark) {
+      if (moonIcon) moonIcon.style.display = 'none';
+      if (sunIcon) sunIcon.style.display = 'inline-block';
     } else {
-      // Fallback for older browsers
-      mediaQuery.addListener(handleSystemThemeChange);
+      if (moonIcon) moonIcon.style.display = 'inline-block';
+      if (sunIcon) sunIcon.style.display = 'none';
     }
-    
-  } catch (error) {
-    console.error('Error initializing theme:', error);
-  }
+  });
+  
+  // Save to localStorage
+  localStorage.setItem('theme', theme);
 }
 
-// Run initialization when DOM is fully loaded
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initializeTheme);
-} else {
-  // DOMContentLoaded has already fired
-  initializeTheme();
-}
+// Initialize theme on page load
+document.addEventListener('DOMContentLoaded', function() {
+  // Get saved theme or use system preference
+  const savedTheme = localStorage.getItem('theme') || 
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  
+  // Apply the theme
+  setTheme(savedTheme);
+  
+  // Watch for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {  // Only if user hasn't set a preference
+      setTheme(e.matches ? 'dark' : 'light');
+    }
+  });
+});
 
 // Toggle dots menu
 if (dotsMenuToggle) {
