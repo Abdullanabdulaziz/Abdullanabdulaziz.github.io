@@ -881,42 +881,15 @@ body.dark-mode .wheel {
 }
 
 [data-theme="dark"] {
-  --bg-color: #121212;
+  --bg-color: #1a1a1a;
   --text-color: #f0f0f0;
-  --header-bg: rgba(18, 18, 18, 0.9);
-  --card-bg: rgba(40, 40, 40, 0.8);
+  --header-bg: rgba(26, 26, 26, 0.9);
+  --card-bg: #2d2d2d;
   --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   --theme-toggle-bg: rgba(255, 255, 255, 0.1);
   --theme-toggle-hover: rgba(255, 255, 255, 0.2);
   --link-color: #5dade2;
   --link-hover: #85c1e9;
-  
-  /* Make sure particles background is dark in dark mode */
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* Ensure all text is visible in dark mode */
-[data-theme="dark"] body,
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3,
-[data-theme="dark"] h4,
-[data-theme="dark"] h5,
-[data-theme="dark"] h6,
-[data-theme="dark"] p,
-[data-theme="dark"] span,
-[data-theme="dark"] div,
-[data-theme="dark"] a,
-[data-theme="dark"] li,
-[data-theme="dark"] td,
-[data-theme="dark"] th,
-[data-theme="dark"] label,
-[data-theme="dark"] input,
-[data-theme="dark"] textarea,
-[data-theme="dark"] select,
-[data-theme="dark"] button {
-  color: var(--text-color) !important;
 }
 
 /* Base styles that use theme variables */
@@ -943,22 +916,16 @@ a:hover {
 }
 
 /* Cards and containers */
-.card, .section, .modal-content, .dropdown-menu {
+.card, .modal-content, .dropdown-menu {
   background-color: var(--card-bg);
   box-shadow: var(--card-shadow);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
 }
 
-/* Main container should be transparent to show the background */
-.container {
+/* Sections and containers - transparent to show particle background */
+.section, .container {
   background-color: transparent;
   box-shadow: none;
-  padding: 0 15px;
-  margin: 0 auto;
-  max-width: 1200px;
 }
 
 /* Form elements */
@@ -1418,6 +1385,7 @@ th, td {
     color: #ffffff;
     position: relative;
     overflow: hidden;
+    background-color: transparent;
 }
 
 .bg-gradient {
@@ -1536,11 +1504,11 @@ th, td {
     position: relative;
     z-index: 2;
     padding: 100px 0;
-    background: var(--color-bg);
+    background-color: transparent;
 }
 
 [data-theme="dark"] .projects-section {
-    background: var(--color-dark-bg);
+    background-color: transparent;
 }
 
 .section-tag {
@@ -1682,21 +1650,6 @@ th, td {
 }
 
 /* Particles Background */
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0.3;
-  transition: opacity 0.5s ease;
-}
-
-[data-theme="dark"] #particles-js {
-  opacity: 0.2;
-}
-
 .particles-container {
     position: absolute;
     top: 0;
@@ -2029,8 +1982,8 @@ th, td {
 
 /* Dark mode styles */
 body.dark-mode #contact {
-    background-color: #1a1a2e;
-    color: #e0e0e0;
+    color: var(--text-color);
+    background-color: transparent;
 }
 
 body.dark-mode .contact-info {
@@ -2110,10 +2063,11 @@ body.dark-mode .contact-phone {
     width: 100%;
     padding: 12px 20px;
     font-size: 1rem;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--text-color);
     border-radius: 8px;
     transition: all 0.3s ease;
-    background-color: #f8f9fa;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
 }
 
 .form-control:focus {
