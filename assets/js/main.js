@@ -37,6 +37,23 @@ const scrollActive = () => {
 };
 window.addEventListener('scroll', scrollActive);
 
+/*===== HEADER BACKGROUND OPACITY ON SCROLL =====*/
+const headerBgScroll = () => {
+    const header = document.querySelector('.l-header');
+    const scrollY = window.scrollY;
+    
+    if(scrollY > 50) {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    } else {
+        header.style.backgroundColor = '';
+        header.style.backdropFilter = '';
+        header.style.boxShadow = '';
+    }
+};
+window.addEventListener('scroll', headerBgScroll);
+
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
     origin: 'top',
