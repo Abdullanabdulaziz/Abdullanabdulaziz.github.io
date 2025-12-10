@@ -223,6 +223,24 @@ img{
             width: 360px;
         }
     }
+    
+    &__scroll{
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        
+        &-link{
+            color: var(--first-color);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            transition: color .3s;
+            
+            &:hover{
+                color: var(--second-color);
+            }
+        }
+    }
 }
 
 /*BUTTONS*/
@@ -521,5 +539,18 @@ img{
         &__img{
             width: 450px;
         }
+    }
+}
+
+/*===== ANIMATIONS =====*/
+@keyframes bounce{
+    0%, 20%, 50%, 80%, 100%{
+        transform: translateX(-50%) translateY(0);
+    }
+    40%{
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60%{
+        transform: translateX(-50%) translateY(-5px);
     }
 }
