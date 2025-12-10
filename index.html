@@ -440,32 +440,58 @@ I’ve worked on automation tools, WordPress plugins, and interactive web apps, 
 
                 <div class="contact__container bd-grid">
                     <div class="contact__info">
-                    <p class="contact__detail">
-                        <i class='bx bx-envelope contact__detail-icon' ></i>
-                        abdallahnabil830@gmail.com
-                    </p>
-                    <p class="contact__detail">
-                        <i class='bx bx-phone contact__detail-icon' ></i>
-                        +20 106 446 1082
-                    </p>
-                </div>
+                        <p class="contact__detail">
+                            <i class='bx bx-envelope contact__detail-icon' ></i>
+                            abdallahnabil830@gmail.com
+                        </p>
+                        <p class="contact__detail">
+                            <i class='bx bx-phone contact__detail-icon' ></i>
+                            +20 106 446 1082
+                        </p>
+                    </div>
 
-                <div class="contact__options">
-                    <a href="mailto:abdallahnabil830@gmail.com?subject=Portfolio%20Inquiry" class="contact__button button button--flex">
-                        <i class='bx bxs-envelope contact__icon' ></i>
-                        Send Email
-                    </a>
+                    <form class="contact__form" id="contactForm">
+                        <div class="contact__form-group">
+                            <input type="text" name="name" class="contact__input" placeholder="Your Name" required>
+                            <span class="contact__error" id="nameError"></span>
+                        </div>
+                        
+                        <div class="contact__form-group">
+                            <input type="email" name="email" class="contact__input" placeholder="Your Email" required>
+                            <span class="contact__error" id="emailError"></span>
+                        </div>
+                        
+                        <div class="contact__form-group">
+                            <textarea name="message" class="contact__input contact__textarea" placeholder="Your Message" rows="5" required></textarea>
+                            <span class="contact__error" id="messageError"></span>
+                        </div>
+                        
+                        <button type="submit" class="contact__button button button--flex">
+                            <i class='bx bxs-paper-plane contact__icon' ></i>
+                            Send Message
+                        </button>
+                        
+                        <div class="contact__success" id="successMessage">
+                            Thank you! Your message has been sent successfully.
+                        </div>
+                    </form>
                     
-                    <a href="https://www.linkedin.com/in/abdulla-abdulaziz-65321b2bb/" target="_blank" class="contact__button button button--flex">
-                        <i class='bx bxl-linkedin contact__icon' ></i>
-                        Connect on LinkedIn
-                    </a>
-                    
-                    <a href="https://wa.me/201064461082" target="_blank" class="contact__button button button--flex">
-                        <i class='bx bxl-whatsapp contact__icon' ></i>
-                        Message on WhatsApp
-                    </a>
-                </div>
+                    <div class="contact__options">
+                        <a href="mailto:abdallahnabil830@gmail.com?subject=Portfolio%20Inquiry" class="contact__button button button--flex">
+                            <i class='bx bxs-envelope contact__icon' ></i>
+                            Send Email
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/in/abdulla-abdulaziz-65321b2bb/" target="_blank" rel="noopener noreferrer" class="contact__button button button--flex">
+                            <i class='bx bxl-linkedin contact__icon' ></i>
+                            Connect on LinkedIn
+                        </a>
+                        
+                        <a href="https://wa.me/201064461082" target="_blank" rel="noopener noreferrer" class="contact__button button button--flex">
+                            <i class='bx bxl-whatsapp contact__icon' ></i>
+                            Message on WhatsApp
+                        </a>
+                    </div>
                 </div>
             </section>
         </main>
@@ -474,8 +500,8 @@ I’ve worked on automation tools, WordPress plugins, and interactive web apps, 
         <footer class="footer">
             <p class="footer__title">Abdulla</p>
             <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                <a href="https://www.facebook.com/abdallah.nabil.106" target="_blank" class="footer__icon" aria-label="Visit Abdulla's Facebook profile"><i class='bx bxl-facebook' ></i></a>
+                <a href="https://www.instagram.com/billyx789/" target="_blank" class="footer__icon" aria-label="Visit Abdulla's Instagram profile"><i class='bx bxl-instagram' ></i></a>
                 <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
             </div>
             
