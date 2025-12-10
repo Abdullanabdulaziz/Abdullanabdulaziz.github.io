@@ -54,6 +54,12 @@ const headerBgScroll = () => {
 };
 window.addEventListener('scroll', headerBgScroll);
 
+/*===== DYNAMIC COPYRIGHT YEAR =====*/
+const yearElement = document.getElementById('year');
+if(yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+}
+
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
     origin: 'top',
