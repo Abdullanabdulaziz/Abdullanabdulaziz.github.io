@@ -353,6 +353,34 @@ img{
             }
         }
     }
+    
+    &__links{
+        margin-top: 1rem;
+        text-align: center;
+    }
+    
+    &__github-btn{
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: #333;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+        
+        &:hover{
+            background-color: #555;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        i{
+            font-size: 1.2rem;
+        }
+    }
 }
 
 /* ===== CONTACT =====*/
