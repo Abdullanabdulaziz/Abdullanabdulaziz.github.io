@@ -391,54 +391,17 @@ img{
         font-weight: var(--font-semi);
         padding: 1rem;
         border-radius: .5rem;
-        border: 1px solid #ccc;
+        border: 1.5px solid var(--second-color);
         outline: none;
-        margin-bottom: 1rem;
-        
-        &:focus{
-            border-color: var(--first-color);
-            box-shadow: 0 0 5px rgba(0,0,0,0.1);
-        }
-        
-        &::placeholder{
-            color: #999;
-        }
+        margin-bottom: var(--mb-4);
     }
-    
-    &__textarea{
-        resize: vertical;
-        min-height: 120px;
-        font-family: var(--body-font);
-    }
-    
-    &__form-group{
-        position: relative;
-        margin-bottom: 1.5rem;
-    }
-    
-    &__error{
-        color: #e74c3c;
-        font-size: 0.875rem;
-        margin-top: 0.25rem;
-        display: none;
-        
-        &.show{
-            display: block;
-        }
-    }
-    
-    &__success{
-        background: #4caf50;
-        color: white;
-        padding: 1rem;
-        border-radius: .5rem;
-        margin-top: 1rem;
-        text-align: center;
-        display: none;
-        
-        &.show{
-            display: block;
-        }
+    &__button{
+        display: block;
+        border: none;
+        outline: none;
+        font-size: var(--normal-font-size);
+        cursor: pointer;
+        margin-left: auto;
     }
 }
 
