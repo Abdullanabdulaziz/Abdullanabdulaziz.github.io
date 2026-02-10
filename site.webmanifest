@@ -4,12 +4,12 @@
   "description": "Portfolio showcasing full-stack projects and web development expertise",
   "icons": [
     {
-      "src": "assets/img/personal_photo_cropped.png",
+      "src": "assets/img/favicon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "assets/img/personal_photo_cropped.png", 
+      "src": "assets/img/favicon-512.png", 
       "sizes": "512x512",
       "type": "image/png"
     }
